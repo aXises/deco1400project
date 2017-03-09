@@ -1,0 +1,17 @@
+/* TEAM */
+                    
+Title: Xinyi Li.
+                            
+Site: leletonyli.13944@yahoo.com.au.
+                            
+Location: St Lucia, QLD.
+                            
+/* SITE */
+                     
+Last update: YYYY/MM/DD.
+                            
+Standards: HTML5, CSS3.
+                            
+Components: jQuery-3.1.1.
+                            
+Software: Visual Studio Code.
