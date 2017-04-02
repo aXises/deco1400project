@@ -14,7 +14,8 @@ $(function(){
 
         // Navigation
         $('.nav_button').click(function(){
-            $('.nav_overlay, nav').toggleClass('visible');
+            $('.nav_overlay, nav').toggleClass('menuvisible');
+            $('#main, .nav_overlay').toggleClass('menuopen');
         });
 
     });
