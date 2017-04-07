@@ -23,6 +23,10 @@ $(function(){
             nav_toggle();
         });
 
+        $('nav li').hover(function(){
+            $('.numerals').css('opacity','0.1');
+        });
+
         function nav_toggle(){
             $('.nav_overlay, nav').toggleClass('menuvisible');
             $('#main, .nav_overlay').toggleClass('menuopen');
