@@ -2,9 +2,10 @@
 
 body {
     background-color: #f4f4f4;
+    color: white;
     margin: 0;
     overflow-x: hidden;
-    font-family: 'Macondo', cursive, sans-serif;
+    font-family: 'Josefin Slab', serif;
 }
 
 h1 {
@@ -69,7 +70,7 @@ nav ul, header section {
 }
 
 nav ul {
-    margin-top: 200px;
+    margin-top: 220px;
     padding: 0;
 }
 
@@ -135,12 +136,12 @@ nav p {
     top: -5px;
     left: 350px;
     z-index: 100;
+    opacity: .1;
     color: white;
-    opacity: 0;
 }
 
 nav li:hover .numerals {
-    opacity: 1 !important;
+    opacity: 1;
 }
 
 .numactive {
@@ -167,14 +168,13 @@ nav li:hover .numerals {
 
 .nav_button {
     background-color: transparent;
-    border: black solid 2px;
+    border: white solid 2px;
 }
 
 .nav_button p {
-    color: black;
     text-align: center;
-    font-size: 1.1em;
-    margin: 14px 0 0 0;
+    font-size: 0.8em;
+    margin: 19.5px 0 0 0;
 }
 
 .nav_button_close {
@@ -199,18 +199,63 @@ nav li,
     justify-content: center;
 }
 
-header h1 {
-    margin-left:-30px;
+header {
+    position: relative;
+}
+
+.bg {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../resources/images/header.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    filter: blur(5px);
+    transform: scale(1.05);
+    animation: huerotate 10s infinite ease-in-out;
+}
+
+@keyframes huerotate {
+    0% {
+        filter: hue-rotate(0) blur(7px);
+    }
+    50% {
+        filter: hue-rotate(50deg) blur(10px);
+    }
+    75% {
+        filter: hue-rotate(25deg) blur(5px);
+    }
+    100% {
+        filter: hue-rotate(0) blur(7px);
+    }
+}
+
+header h6 {
+    font-weight: 300;
+    margin: 0;
 }
 
 header section {
-    height: 300px;
-    background-color: #f4decb;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: absolute;
 }
 
-#main {
+main {
     width: 100vw;
     height: 3000px;
+}
+
+/* sub 800px */
+@media (max-width:800px) {
+    .numerals {
+        display: none;
+    }
+
+    nav ul {
+        margin-top: 100px;
+    }
 }
 
 /* Utilities */
@@ -236,6 +281,7 @@ header section {
     opacity: 1;
     transform: rotate(0);
     pointer-events: all;
+    transform: scale(0.9);
 }
 
 .nav_button_hidden {

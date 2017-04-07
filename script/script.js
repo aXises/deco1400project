@@ -23,17 +23,13 @@ $(function(){
             nav_toggle();
         });
 
-        $('nav li').hover(function(){
-            $('.numerals').css('opacity','0.1');
-        });
-
         function nav_toggle(){
             $('.nav_overlay, nav').toggleClass('menuvisible');
             $('#main, .nav_overlay').toggleClass('menuopen');
             $('.nav_button_close').toggleClass('menutransform-open');
         }
 
-        function loading () {
+        function loading (){
             $('.loading').addClass('hidden');
             $('.loading').css('pointer-events','none');
         }
