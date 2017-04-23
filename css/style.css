@@ -1,11 +1,12 @@
 /* CSS Document */
 
 body {
-    background-color: #f4f4f4;
+    background-color: white;
     color: white;
     margin: 0;
     overflow-x: hidden;
     font-family: 'Josefin Slab', serif;
+    position: relative;
 }
 
 h1 {
@@ -48,6 +49,11 @@ nav,
 .loading {
     position: fixed;
     opacity: 0;
+}
+
+.nav_button:hover {
+    border-color: orangered !important;
+
 }
 
 .loading {
@@ -138,6 +144,7 @@ nav p {
     z-index: 100;
     opacity: .1;
     color: white;
+    border: none !important;
 }
 
 nav li:hover .numerals {
@@ -211,7 +218,7 @@ header {
     background-position: center;
     background-size: cover;
     position: absolute;
-    filter: blur(5px);
+    filter:blur(4px);
     transform: scale(1.05);
     animation: huerotate 10s infinite ease-in-out;
     z-index: 1;
@@ -219,22 +226,22 @@ header {
 
 @keyframes huerotate {
     0% {
-        filter: hue-rotate(0) blur(7px);
+        filter: hue-rotate(320deg) blur(7px);
     }
     50% {
-        filter: hue-rotate(50deg) blur(10px);
+        filter: hue-rotate(260deg) blur(10px);
     }
     75% {
-        filter: hue-rotate(25deg) blur(5px);
+        filter: hue-rotate(280deg) blur(5px);
     }
     100% {
-        filter: hue-rotate(0) blur(7px);
+        filter: hue-rotate(320deg) blur(7px);
     }
 }
 
 main {
     width: 100vw;
-    height: 3000px;
+    height: 100%;
 }
 
 header h6 {
@@ -249,7 +256,7 @@ header section {
     z-index: 2;
 }
 
-header hr{
+header hr, .chapter hr {
     width: 5%;
     margin-top: 0;
     margin-bottom: 30px;
@@ -259,20 +266,21 @@ header aside{
     position: absolute;
     bottom: 20px;
     opacity: 0.4;
+    cursor: pointer;
 }
 
-header aside:hover{
+header aside:hover {
     opacity: 0.9;
 }
 
-header i{
+header i {
     font-size: 30px;
     opacity: 0;
     position: relative;
     animation: arrow-float ease-in-out infinite 2.5s;
 }
 
-header aside:hover > i{
+header aside:hover > i {
     opacity: 0.8;
 }
 
@@ -290,9 +298,51 @@ header aside:hover > i{
 
 .chapter {
     background-color: white;
+    color: black;
     height: 100vh;
     position: relative;
     z-index: 5;
+}
+
+.chapter hr {
+    margin: 40px 0 40px 0;
+    text-align: left;
+    border-color: orangered;
+}
+
+.chapter h6 {
+    margin: 0;
+    color: #525252;
+}
+
+.chapter-invert {
+    background-color: black;
+    color: white;
+}
+
+.chapter-poem {
+    width: 55%;
+    height: 100%;
+    text-align: center;
+    padding: 0;
+    margin: auto;
+}
+
+.chapter-poem article {
+    width: 50%;
+    float: left;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+main article {
+    width: 55vw;
+    padding-top: 150px;
+    margin: auto;
+    background-color:inherit;
+    color: inherit;
+    font-size: 20px;
+    line-height: 50px;
 }
 
 /* sub 800px */
@@ -304,6 +354,24 @@ header aside:hover > i{
     nav ul {
         margin-top: 100px;
     }
+}
+
+.to-top {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    right: -50px;
+    bottom: 50px;
+    z-index: 5;
+    cursor: pointer;
+}
+
+.to-top i {
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+    top: 20%;
 }
 
 /* Utilities */
@@ -349,6 +417,14 @@ header aside:hover > i{
     justify-content: center;
 }
 
+.bold {
+    font-weight: 800;
+}
+
+.no_padding {
+    padding: 0;
+}
+
 mstransition,
 nav,
 .nav_overlay,
@@ -362,7 +438,9 @@ nav li:hover:before,
 nav li:hover:after,
 nav li:hover .numerals,
 .numerals,
-header i {
+header i,
+.to-top,
+.chapter {
     -webkit-transition: all 0.35s ease-in-out;
     -moz-transition: all 0.35s ease-in-out;
     transition: all 0.35s ease-in-out;
