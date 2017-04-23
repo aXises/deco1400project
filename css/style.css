@@ -214,6 +214,7 @@ header {
     filter: blur(5px);
     transform: scale(1.05);
     animation: huerotate 10s infinite ease-in-out;
+    z-index: 1;
 }
 
 @keyframes huerotate {
@@ -231,6 +232,11 @@ header {
     }
 }
 
+main {
+    width: 100vw;
+    height: 3000px;
+}
+
 header h6 {
     font-weight: 300;
     margin: 0;
@@ -240,11 +246,53 @@ header section {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.65);
     position: absolute;
+    z-index: 2;
 }
 
-main {
-    width: 100vw;
-    height: 3000px;
+header hr{
+    width: 5%;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+header aside{
+    position: absolute;
+    bottom: 20px;
+    opacity: 0.4;
+}
+
+header aside:hover{
+    opacity: 0.9;
+}
+
+header i{
+    font-size: 30px;
+    opacity: 0;
+    position: relative;
+    animation: arrow-float ease-in-out infinite 2.5s;
+}
+
+header aside:hover > i{
+    opacity: 0.8;
+}
+
+@keyframes arrow-float{
+    0%{
+        bottom: 10px;
+    }
+    50%{
+        bottom: -15px;
+    }
+    100%{
+        bottom: 10px;
+    }
+}
+
+.chapter {
+    background-color: white;
+    height: 100vh;
+    position: relative;
+    z-index: 5;
 }
 
 /* sub 800px */
@@ -260,11 +308,11 @@ main {
 
 /* Utilities */
 .visible {
-    opacity: 1; !important;
+    opacity: 1 !important;
 }
 
 .hidden {
-    opacity: 0; !important;
+    opacity: 0 !important;
 }
 
 .menuvisible {
@@ -295,7 +343,7 @@ main {
     transform: translateX(-50%);
 }
 
-.verticaltext {
+.verticalcenter {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -313,14 +361,16 @@ nav li:after,
 nav li:hover:before,
 nav li:hover:after,
 nav li:hover .numerals,
-.numerals {
+.numerals,
+header i {
     -webkit-transition: all 0.35s ease-in-out;
     -moz-transition: all 0.35s ease-in-out;
     transition: all 0.35s ease-in-out;
 }
 
 nav li,
-nav li:hover {
+nav li:hover,
+header aside {
     -webkit-transition: all 0.15s ease-in-out;
     -moz-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;    
