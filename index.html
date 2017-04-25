@@ -68,6 +68,11 @@
                     </li>
                 </a>
             </ul>
+            <aside class="night_mode verticalcenter">
+                <p id="light">Turn off the lights</p>
+                <i class="ion-ios-lightbulb-outline"></i>
+                <p id="dark" class="hidden">Turn on the lights</p>
+            </aside>
         </nav>
 
         <main>
@@ -173,7 +178,12 @@
 
     </body>
     
-    <script src="script/jquery-3.1.1.min.js"></script>      
-    <script src="script/script.js"></script>    
-
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        if (typeof(jQuery) === 'undefined') {
+            document.write('<script src="script/jquery-3.1.1.min.js"><'+'/script>'); 
+        }
+    </script>
+    <script src="script/script.js"></script>  
+https://www.goodreads.com/story/show/523891-the-kingdoms-of-shadow-and-light?chapter=1
 </html>

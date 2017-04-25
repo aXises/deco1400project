@@ -2,10 +2,16 @@
 
 $(function(){
     $(document).ready(function(){
-        
         //loading
         console.log('dom ready');
-        loading();
+
+        //Wait for images
+        $(window).on("load", function() {
+            loading();
+        });
+        
+        var light = true //Default light state
+        var height = $(window).height(); //Window height
 
         //Navigation-open
         $('.nav_button').click(function(){
@@ -19,19 +25,26 @@ $(function(){
         $('.nav_button_close').click(function(){
             $(this).css("pointer-events", "none");
             $('.nav_button').css("pointer-events", "all");
-            $('.nav_button').removeClass('nav_button_hidden')
+            $('.nav_button').removeClass('nav_button_hidden');
             nav_toggle();
         });
 
-        //Page scroll
-        var height = $(window).height();
+        //Light toggle
+        $('.night_mode i').click(function(){
+            $('#light').toggleClass('hidden');
+            $('#dark').toggleClass('hidden');
+            $(this).toggleClass('ion-ios-lightbulb').toggleClass('ion-ios-lightbulb-outline');
+            light_toggle();
+        });
 
+        //Page scroll
         $('header aside').click(function(){
             $('body').animate({
                 scrollTop: ('+=%i', height)
             },700)
         });
 
+        //Scroll to top
         $('.to-top').click(function(){
             $('body').animate({
                 scrollTop: 0
@@ -42,7 +55,7 @@ $(function(){
         $(window).scroll(function(){
             var position = $(window).scrollTop() + 50;
             //Full height offset
-            if (position > height){
+            if (position > height && light == true){
                 $('.nav_button, .numerals').css({
                     'border':'#525252 solid 2px',
                     'color':'#525252'
@@ -75,22 +88,33 @@ $(function(){
         //Other
         $('.chapter span').hover(
             function(){
-                $('.chapter').toggleClass('chapter-invert')
+                $('.chapter').toggleClass('chapter-invert');
             },
             function(){
-                $('.chapter').toggleClass('chapter-invert')
+                $('.chapter').toggleClass('chapter-invert');
             }
         );
 
-        function nav_toggle(){
+        function nav_toggle() {
             $('.nav_overlay, nav').toggleClass('menuvisible');
             $('#main, .nav_overlay').toggleClass('menuopen');
             $('.nav_button_close').toggleClass('menutransform-open');
         }
 
-        function loading (){
+        function loading() {
             $('.loading').addClass('hidden');
             $('.loading').css('pointer-events','none');
+        }
+
+        function light_toggle() {
+            if (light === true) {
+                $('main').addClass('main_invert');
+                light = false
+            }
+            else {
+                $('main').removeClass('main_invert');
+                light = true
+            }
         }
 
     }); //End of document ready
