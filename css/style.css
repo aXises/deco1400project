@@ -56,7 +56,7 @@ nav,
 }
 
 .nav_button:hover {
-    border-color: orangered !important;
+    border-color: limegreen !important;
 
 }
 
@@ -162,7 +162,6 @@ nav li:hover .numerals {
 .nav_overlay {
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 99;
-    pointer-events: none;
 }
 
 .nav_button, .nav_button_close {
@@ -218,7 +217,7 @@ nav li:hover .numerals {
 }
 
 .night_mode i:hover {
-    color: orangered;
+    color: limegreen;
 }
 
 header, 
@@ -253,16 +252,16 @@ header {
 
 @keyframes huerotate {
     0% {
-        filter: hue-rotate(320deg) blur(7px);
+        filter: hue-rotate(0) blur(7px);
     }
     50% {
-        filter: hue-rotate(260deg) blur(10px);
+        filter: hue-rotate(50deg) blur(10px);
     }
     75% {
-        filter: hue-rotate(280deg) blur(5px);
+        filter: hue-rotate(25deg) blur(5px);
     }
     100% {
-        filter: hue-rotate(320deg) blur(7px);
+        filter: hue-rotate(0) blur(7px);
     }
 }
 
@@ -321,20 +320,20 @@ header aside:hover > i {
 
 @keyframes arrow-float{
     0%{
-        bottom: 10px;
+        bottom: 5px;
     }
     50%{
-        bottom: -15px;
+        bottom: -5px;
     }
     100%{
-        bottom: 10px;
+        bottom: 5px;
     }
 }
 
 .chapter {
     background-color: inherit;
     color: inherit;
-    height: 100vh;
+    height: 100%;
     position: relative;
     z-index: 5;
 }
@@ -342,7 +341,7 @@ header aside:hover > i {
 .chapter hr {
     margin: 40px 0 40px 0;
     text-align: left;
-    border-color: orangered;
+    border-color: limegreen;
 }
 
 .chapter h6 {
@@ -357,7 +356,7 @@ header aside:hover > i {
 
 .chapter-poem {
     width: 55%;
-    height: 100%;
+    height: 500px;
     text-align: center;
     padding: 0;
     margin: auto;
@@ -403,10 +402,10 @@ main article {
 }
 
 .to-top i {
-    font-size: 30px;
+    font-size: 26px;
     text-align: center;
     position: relative;
-    top: 20%;
+    top: 23%;
 }
 
 /* Utilities */
