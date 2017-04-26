@@ -12,6 +12,12 @@ $(function(){
         
         var light = true //Default light state
         var height = $(window).height(); //Window height
+        var pos_right = $('.to-top').css('right'); //To-top right position
+
+        //Update height on resize
+        $(window).resize(function(){
+            height = $(this).height();
+        });
 
         //Navigation-open
         $('.nav_button').click(function(){
@@ -51,6 +57,10 @@ $(function(){
             },700)
         });
 
+        //Set section overlay to the element size
+        var panelHeight = $('#panel1').height();
+        $('#panel1_overlay').css('height', panelHeight);
+
         //Page animations
         $(window).scroll(function(){
             var position = $(window).scrollTop() + 50;
@@ -70,10 +80,11 @@ $(function(){
 
             //Half height offset
             if (position > height/2){
-                $('.to-top').css('right','0px')
+                $('.to-top').css('right','0px');
             }
             else {
-                $('.to-top').css('right','-50px')
+                console.log(pos_right)
+                $('.to-top').css('right', pos_right);
             }
 
             //Quarter height offset
@@ -86,7 +97,7 @@ $(function(){
         });
 
         //Other
-        $('.chapter span').hover(
+        $('test').hover(
             function(){
                 $('.chapter').toggleClass('chapter-invert');
             },
@@ -95,19 +106,19 @@ $(function(){
             }
         );
 
-        function nav_toggle() {
+        function nav_toggle(){
             $('.nav_overlay, nav').toggleClass('menuvisible');
             $('#main, .nav_overlay').toggleClass('menuopen');
             $('.nav_button_close').toggleClass('menutransform-open');
         }
 
-        function loading() {
+        function loading(){
             $('.loading').addClass('hidden');
             $('.loading').css('pointer-events','none');
         }
 
-        function light_toggle() {
-            if (light === true) {
+        function light_toggle(){
+            if (light === true){
                 $('main').addClass('main_invert');
                 light = false
             }

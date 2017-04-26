@@ -38,12 +38,17 @@ h6 {
 }
 
 a {
-    text-decoration: none;
     color: #333333;
 }
 
-button {
+a, button {
     text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 nav, 
@@ -162,6 +167,7 @@ nav li:hover .numerals {
 .nav_overlay {
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 99;
+    pointer-events: none;
 }
 
 .nav_button, .nav_button_close {
@@ -279,7 +285,6 @@ main {
 
 header h6 {
     font-weight: 300;
-    margin: 0;
 }
 
 header section {
@@ -330,6 +335,14 @@ header aside:hover > i {
     }
 }
 
+.section_overlay {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .chapter {
     background-color: inherit;
     color: inherit;
@@ -345,28 +358,12 @@ header aside:hover > i {
 }
 
 .chapter h6 {
-    margin: 0;
     color: inherit;
 }
 
 .chapter-invert {
     background-color: black;
     color: white;
-}
-
-.chapter-poem {
-    width: 55%;
-    height: 500px;
-    text-align: center;
-    padding: 0;
-    margin: auto;
-}
-
-.chapter-poem article {
-    width: 50%;
-    float: left;
-    font-size: 18px;
-    line-height: 25px;
 }
 
 main article {
@@ -377,6 +374,20 @@ main article {
     color: inherit;
     font-size: 20px;
     line-height: 50px;
+}
+
+.next_part {
+    position: relative;
+    padding-bottom: 150px;
+}
+
+.next_part h1, .next_part h6 {
+    text-align: center;
+    margin: 15px 20% 10px 20%;
+}
+
+.next_part h6 {
+    font-size: 1.5em;
 }
 
 /* sub 800px */
@@ -395,10 +406,11 @@ main article {
     height: 50px;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
-    right: -50px;
+    right: -52px;
     bottom: 50px;
     z-index: 5;
     cursor: pointer;
+    border: 1px whitesmoke solid;
 }
 
 .to-top i {
@@ -458,6 +470,10 @@ main article {
 
 .no_padding {
     padding: 0;
+}
+
+.no_margin {
+    margin: 0;
 }
 
 mstransition,
