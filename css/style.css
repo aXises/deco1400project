@@ -1,5 +1,9 @@
 /* CSS Document */
 
+html {
+    background-color: black;
+}
+
 body {
     background-color: white;
     color: white;
