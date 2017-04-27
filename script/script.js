@@ -6,11 +6,11 @@ $(function(){
         console.log('dom ready');
 
         //Global variables
-        var loaded = 0 //Default page loading state
+        var loaded = false //Default page loading state
         var light = true //Default light state
         var height = $(window).height(); //Window height
-        var position = $(window).scrollTop() + 50; //User scroll position
         var pos_right = $('.to-top').css('right'); //To-top right position
+        var position = $(window).scrollTop() + 50;
 
         //Wait for images
         $(window).on("load", function(){
@@ -19,7 +19,7 @@ $(function(){
         
         //Load after 5 seconds if images hasn't been loaded
         setTimeout(function(){
-            if (loaded !== 1){
+            if (!loaded){
                 loading();
             }
         },5000)
@@ -34,7 +34,7 @@ $(function(){
             $(this).css("pointer-events", "none");
             $(this).addClass('nav_button_hidden')
             $('.nav_button_close').css("pointer-events", "all");
-            nav_toggle();
+            navToggle();
         });
 
         //Navigation-close
@@ -42,7 +42,7 @@ $(function(){
             $(this).css("pointer-events", "none");
             $('.nav_button').css("pointer-events", "all");
             $('.nav_button').removeClass('nav_button_hidden');
-            nav_toggle();
+            navToggle();
         });
 
         //Light toggle
@@ -50,14 +50,12 @@ $(function(){
             $('#light').toggleClass('hidden');
             $('#dark').toggleClass('hidden');
             $(this).toggleClass('ion-ios-lightbulb').toggleClass('ion-ios-lightbulb-outline');
-            light_toggle();
+            lightToggle();
         });
 
         //Page scroll
         $('header aside').click(function(){
-            $('body').animate({
-                scrollTop: ('+=%i', height)
-            },700)
+            scrollDown(height)
         });
 
         //Scroll to top
@@ -74,12 +72,7 @@ $(function(){
             var pageUrl = window.location.href
             var pageLocation = pageUrl.split('/').pop();
             if (pageLocation === page){
-                if (position < height/4) {
-                    $('body').animate({
-                        scrollTop: ('+=%i', height)
-                    },700)
-                }
-                else {}
+                scrollDown(height);
             }
             else {
                 $('body').fadeOut(750, redirect);
@@ -104,8 +97,9 @@ $(function(){
 
         //Page animations
         $(window).scroll(function(){
+            var position = $(this).scrollTop() + 50;
             //Full height offset
-            if (position > height && light == true){
+            if (position > height && light){
                 $('.nav_button, .numerals').css({
                     'border':'#525252 solid 2px',
                     'color':'#525252'
@@ -145,7 +139,13 @@ $(function(){
             }
         );
 
-        function nav_toggle(){
+        function scrollDown(height) {
+            $('body').animate({
+                scrollTop: ('+=%i', height)
+            },700)
+        }
+
+        function navToggle(){
             $('.nav_overlay, nav').toggleClass('menuvisible');
             $('#main, .nav_overlay').toggleClass('menuopen');
             $('.nav_button_close').toggleClass('menutransform-open');
@@ -154,11 +154,11 @@ $(function(){
         function loading(){
             $('.loading').addClass('hidden');
             $('.loading').css('pointer-events','none');
-            loaded = 1
+            loaded = true
         }
 
-        function light_toggle(){
-            if (light === true){
+        function lightToggle(){
+            if (light){
                 $('main').addClass('main_invert');
                 light = false
             }
