@@ -53,6 +53,22 @@ $(function(){
             lightToggle();
         });
 
+        //Next part overlay toggle
+        $('.next_part').click(function(){
+            overlayToggle();
+        });
+
+        $('.next_overlay').click(function(){
+            overlayToggle();
+            $('.to-top').css('right','0px');
+        });
+
+        function overlayToggle() {
+            $('.next_overlay').toggleClass('next_hidden');
+            $('body').toggleClass('no_overflow');
+            $('.to-top').css('right', pos_right);
+        }
+
         //Page scroll
         $('header aside').click(function(){
             scrollDown(height)
@@ -66,7 +82,7 @@ $(function(){
         });
 
         //Page change
-        $('nav a').click(function(event){
+        $('a').click(function(event){
             event.preventDefault();
             var page = $(this).attr('href');
             var pageUrl = window.location.href
@@ -130,12 +146,21 @@ $(function(){
         });
 
         //Other
-        $('test').hover(
+        $('.next_overlay a').hover(
             function(){
-                $('.chapter').toggleClass('chapter-invert');
+                $('.next_overlay').css('filter', 'saturate(100%)')
             },
             function(){
-                $('.chapter').toggleClass('chapter-invert');
+                $('.next_overlay').css('filter', 'saturate(0%)')
+            }
+        );
+
+        $('.p_background').hover(
+            function(){
+                $(this).css('background-color', 'rgba(0, 0, 0, 0.75)')
+            },
+            function(){
+                $(this).css('background-color', 'rgba(0, 0, 0, 0)')
             }
         );
 

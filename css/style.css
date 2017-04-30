@@ -16,6 +16,7 @@ body {
 h1 {
     font-size: 5em;
 }
+
 h2 {
     font-size: 4.5em;
 }
@@ -45,7 +46,8 @@ a {
     color: #333333;
 }
 
-a, button {
+a,
+button {
     text-decoration: none;
 }
 
@@ -55,9 +57,9 @@ img {
     background-size: cover;
 }
 
-nav, 
+nav,
 .nav_button,
-.nav_button_close, 
+.nav_button_close,
 .nav_overlay,
 .loading {
     position: fixed;
@@ -66,7 +68,6 @@ nav,
 
 .nav_button:hover {
     border-color: limegreen !important;
-
 }
 
 .loading {
@@ -83,7 +84,8 @@ nav {
     left: -300px;
 }
 
-nav ul, header section {
+nav ul,
+header section {
     list-style-type: none;
     text-align: center;
 }
@@ -131,7 +133,7 @@ nav li:after {
 }
 
 nav li:hover:after,
-nav li:hover:before{
+nav li:hover:before {
     transform: translateY(0);
 }
 
@@ -165,7 +167,7 @@ nav li:hover .numerals {
 }
 
 .numactive {
-    color:black;
+    color: black;
 }
 
 .nav_overlay {
@@ -174,7 +176,8 @@ nav li:hover .numerals {
     pointer-events: none;
 }
 
-.nav_button, .nav_button_close {
+.nav_button,
+.nav_button_close {
     width: 50px;
     height: 50px;
     border-radius: 25px;
@@ -213,7 +216,8 @@ nav li:hover .numerals {
     margin-top: 80px;
 }
 
-.night_mode p, .night_mode i {
+.night_mode p,
+.night_mode i {
     font-size: 18px;
     margin: 0;
     color: black;
@@ -230,8 +234,21 @@ nav li:hover .numerals {
     color: limegreen;
 }
 
-header, 
-header section, 
+@media (max-width:1600px) {
+    nav {}
+    nav ul {
+        margin-top: 50px;
+    }
+    nav li {
+        padding: 0;
+    }
+    .night_mode {
+        margin: 30px 0 20px 0;
+    }
+}
+
+header,
+header section,
 .nav_overlay,
 nav li,
 .loading {
@@ -250,11 +267,8 @@ header {
     width: 100vw;
     height: 100vh;
     background-image: url("../resources/images/header.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     position: absolute;
-    filter:blur(4px);
+    filter: blur(4px);
     transform: scale(1.05);
     animation: huerotate 10s infinite ease-in-out;
     z-index: 1;
@@ -299,13 +313,14 @@ header section {
     color: white !important;
 }
 
-header hr, .chapter hr {
+header hr,
+.chapter hr {
     width: 5%;
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
-header aside{
+header aside {
     position: absolute;
     bottom: 20px;
     opacity: 0.4;
@@ -327,14 +342,14 @@ header aside:hover > i {
     opacity: 0.8;
 }
 
-@keyframes arrow-float{
-    0%{
+@keyframes arrow-float {
+    0% {
         bottom: 5px;
     }
-    50%{
+    50% {
         bottom: -5px;
     }
-    100%{
+    100% {
         bottom: 5px;
     }
 }
@@ -374,14 +389,34 @@ header aside:hover > i {
     color: white;
 }
 
-main article {
+main article, #p_bg1 aside {
     width: 55vw;
     padding-top: 150px;
     margin: auto;
-    background-color:inherit;
+    background-color: inherit;
     color: inherit;
     font-size: 20px;
     line-height: 50px;
+}
+
+#p1main article {
+    padding-bottom: 150px;
+}
+
+#p_bg1 aside {
+    padding: 30px 10px 30px 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+#p_bg1 #tl, #p_bg1 #bl {
+    width: 40vw;
+    margin-right: 50%;
+}
+
+#p_bg1 #tr, #p_bg1 #br {
+    width: 40vw;
+    margin-left: 50%;
 }
 
 .next_part {
@@ -389,9 +424,11 @@ main article {
     padding-bottom: 150px;
 }
 
-.next_part h1, .next_part h6 {
+.next_part h1,
+.next_part h6 {
     text-align: center;
     margin: 15px 20% 10px 20%;
+    cursor: pointer;
 }
 
 .next_part h6 {
@@ -402,12 +439,51 @@ main article {
     color: limegreen;
 }
 
+.next_overlay {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-image: url("../resources/images/next_overlay.jpg");
+    bottom: 0;
+    left: 0;
+    filter: saturate(0%);
+}
+
+.next_hidden {
+    left: 100vw;
+}
+
+.next_overlay a {
+    color: white;
+    padding: 30px;
+    font-family: inherit;
+    position: absolute;
+    border: white solid 1px;
+    background-color: rgba(0, 0, 0, 0.55);
+    cursor: pointer;
+}
+
+.next_overlay a:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.p_background {
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+#p_bg1, #part3overlay {
+    background-image: url("../resources/images/Park_Trees_CG_Path_Trail_art_1920x1080.jpg");
+}
+
+
 /* sub 800px */
+
 @media (max-width:800px) {
     .numerals {
         display: none;
     }
-
     nav ul {
         margin-top: 100px;
     }
@@ -433,6 +509,17 @@ main article {
 }
 
 /* Utilities */
+
+.bgstd {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.no_overflow {
+    overflow: hidden !important;
+}
+
 .textcontrast {
     color: limegreen;
     font-weight: 800;
@@ -453,8 +540,9 @@ main article {
 }
 
 .menuopen {
-    margin-left:300px;
+    margin-left: 300px;
     width: 90% !important;
+    pointer-events: all;
 }
 
 .menutransform-open {
@@ -470,9 +558,18 @@ main article {
     pointer-events: none;
 }
 
-.centerx {
+.centerx, .centerxy {
     left: 50%;
     transform: translateX(-50%);
+}
+
+.centery, .centerxy {
+    top: 47.5%;
+    transform: translateY(-50%);
+}
+
+.centerxy {
+    transform: translate(-50%) !important;
 }
 
 .verticalcenter {
@@ -510,7 +607,11 @@ header i,
 .to-top,
 .chapter,
 #light,
-#dark {
+#dark,
+.next_hidden,
+.next_overlay,
+.next_overlay a,
+.p_background {
     -webkit-transition: all 0.35s ease-in-out;
     -moz-transition: all 0.35s ease-in-out;
     transition: all 0.35s ease-in-out;
@@ -519,10 +620,11 @@ header i,
 nav li,
 nav li:hover,
 header aside,
-.night_mode i {
+.night_mode i,
+.next_part h1 {
     -webkit-transition: all 0.15s ease-in-out;
     -moz-transition: all 0.15s ease-in-out;
-    transition: all 0.15s ease-in-out;    
+    transition: all 0.15s ease-in-out;
 }
 
 .loading {
