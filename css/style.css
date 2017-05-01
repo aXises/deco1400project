@@ -11,6 +11,7 @@ body {
     overflow-x: hidden;
     font-family: 'Josefin Slab', serif;
     position: relative;
+    overflow-y: hidden;
 }
 
 h1 {
@@ -59,6 +60,7 @@ img {
 
 nav,
 .nav_button,
+.info_button,
 .nav_button_close,
 .nav_overlay,
 .loading {
@@ -155,7 +157,7 @@ nav p {
     font-size: 1.2em;
     position: absolute;
     top: -5px;
-    left: 350px;
+    left: 340px;
     z-index: 100;
     opacity: .1;
     color: white;
@@ -177,16 +179,26 @@ nav li:hover .numerals {
 }
 
 .nav_button,
-.nav_button_close {
+.nav_button_close,
+.info_button {
     width: 50px;
     height: 50px;
     border-radius: 25px;
     background-color: #220323;
     left: 20px;
-    top: 20px;
     z-index: 101;
     cursor: pointer;
     opacity: 1;
+}
+
+.nav_button,
+.nav_button_close {
+    top: 20px;
+}
+
+.info_button {
+    bottom: 15px;
+    background-color: transparent;
 }
 
 .nav_button {
@@ -194,12 +206,17 @@ nav li:hover .numerals {
     border: white solid 2px;
 }
 
-.nav_button p {
+.nav_button p,
+.info_button i {
     text-align: center;
     font-size: 0.8em;
     margin: 19.5px 0 0 0;
 }
 
+.info_button i {
+    font-size: 2.5em;
+    position: relative;
+}
 .nav_button_close {
     background-image: url("../resources/icons/menu-close.png");
     background-color: transparent;
@@ -389,9 +406,15 @@ header aside:hover > i {
     color: white;
 }
 
+.chapter_img {
+    width: 100%;
+    height: 500px;
+    background-image: url("../resources/images/p_bg1.jpg");
+}
+
 main article, #p_bg1 aside {
     width: 55vw;
-    padding-top: 150px;
+    padding: 150px 0 100px 0;
     margin: auto;
     background-color: inherit;
     color: inherit;
@@ -429,6 +452,9 @@ main article, #p_bg1 aside {
     text-align: center;
     margin: 15px 20% 10px 20%;
     cursor: pointer;
+    border: 1px solid black;
+    padding: 45px;
+    border-radius: 10px;
 }
 
 .next_part h6 {
@@ -436,17 +462,25 @@ main article, #p_bg1 aside {
 }
 
 .next_part h1:hover {
-    color: limegreen;
+    border: 1px solid limegreen;
 }
 
 .next_overlay {
     width: 100vw;
     height: 100vh;
     position: absolute;
-    background-image: url("../resources/images/next_overlay.jpg");
     bottom: 0;
     left: 0;
     filter: saturate(0%);
+    z-index: 105;
+}
+
+#index_overlay {
+    background-image: url("../resources/images/1566426.jpg");
+}
+
+#p_bg1, #part3overlay {
+    background-image: url("../resources/images/Park_Trees_CG_Path_Trail_art_1920x1080.jpg");
 }
 
 .next_hidden {
@@ -471,10 +505,6 @@ main article, #p_bg1 aside {
     width: 100vw;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.75);
-}
-
-#p_bg1, #part3overlay {
-    background-image: url("../resources/images/Park_Trees_CG_Path_Trail_art_1920x1080.jpg");
 }
 
 
@@ -587,7 +617,7 @@ main article, #p_bg1 aside {
 }
 
 .no_margin {
-    margin: 0;
+    margin: 0 !important;
 }
 
 mstransition,

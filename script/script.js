@@ -24,10 +24,19 @@ $(function(){
             }
         },5000)
 
-        //Update height on resize
+        //Update global height on resize
         $(window).resize(function(){
             height = $(this).height();
         });
+
+        $(window).scroll(function(){
+			var wintop = $(window).scrollTop();
+			$('header').css('opacity', 1 - wintop / 1000);
+            $('.chapter_img').css({
+                'filter': 'hue-rotate('+(1 - wintop / 10)+'deg)',
+                'background-position-y': (1 - wintop / 4)+'px'
+            });
+		});
 
         //Navigation-open
         $('.nav_button').click(function(){
@@ -99,18 +108,6 @@ $(function(){
             }
         });
 
-        $('#current_page').click(function(){
-            if (position > height/4){
-                $('body').animate({
-                    scrollTop: 0
-                },700)
-            }
-        });
-
-        //Set section overlay to the element size
-        var panelHeight = $('#panel1').height();
-        $('#panel1_overlay').css('height', panelHeight);
-
         //Page animations
         $(window).scroll(function(){
             var position = $(this).scrollTop() + 50;
@@ -179,6 +176,7 @@ $(function(){
         function loading(){
             $('.loading').addClass('hidden');
             $('.loading').css('pointer-events','none');
+            $('body').css('overflow-y', 'auto');
             loaded = true
         }
 
