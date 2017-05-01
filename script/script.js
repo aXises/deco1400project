@@ -63,7 +63,7 @@ $(function(){
         });
 
         //Next part overlay toggle
-        $('.next_part').click(function(){
+        $('.next_part h1').click(function(){
             overlayToggle();
         });
 
@@ -117,12 +117,14 @@ $(function(){
                     'border':'#525252 solid 2px',
                     'color':'#525252'
                 });
+                
             }
             else {
                 $('.nav_button, .numerals').css({
                     'border':'white solid 2px',
                     'color':'white'
                 });
+                
             }
 
             //Half height offset

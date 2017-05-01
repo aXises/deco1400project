@@ -9,6 +9,7 @@
         <link type="text/plain" rel="author" href="humans.txt"/>
         <title>story.io</title>
          <!-- Main CSS -->
+        <link href="css/reset.css" rel="stylesheet" type="text/css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:300,400" rel="stylesheet">
@@ -77,12 +78,12 @@
 
         <main id='p1main'>
             <header>
-                <section class="bg bgstd">
+                <section class="bg bgstd" aria-label="grassy background">
                 </section>
                 <section>
                     <h2>The Iron King</h2>
                     <hr>
-                    <h6 class="no_margin">The Ghost in the Computer.</h6>
+                    <h6 class="no_margin">The Ghost in the Computer</h6>
                     <aside class="centerx">
                         <p>Begin Part 2</p>
                         <i class="ion-chevron-down"></i>
@@ -126,27 +127,28 @@
                         </p>
                         <p>It would be another ten years before I discovered what...</p>
                     </aside>
+                    <article class="next_part verticalcenter" id="np_2">
+                        <h1 class="verticalcenter">Begin Part 3</h1>
+                    </article>
                 </article>
-
-                <article class="next_part verticalcenter">
-                    <h1 class="verticalcenter">Begin Part 3</h1>
-                </article>
-                <section id='part3overlay' class="next_overlay next_hidden bgstd">
-                    <a class="centerxy verticalcenter" href="part3.html">
-                        <h6 class="no_margin">My Name is Meghan Chase</h6>
-                    </a>
-                </section>
-
             </section>
 
-            <section class="chapter">
-                
+            <section id='part3overlay' class="next_overlay next_hidden bgstd">
+                <a class="centerxy verticalcenter" href="part3.html">
+                    <h6 class="no_margin">My Name is Meghan Chase</h6>
+                </a>
             </section>
+
+            <aside class="to-top">
+                <i class="ion-chevron-up verticalcenter"></i>
+            </aside>
+
+            <footer>
+            <p class="centerxy">The Iron King by Julie Kagawa | DECO1400project | Xinyi Li 2017</p>
+            </footer>
         </main>
 
-        <aside class="to-top">
-            <i class="ion-chevron-up verticalcenter"></i>
-        </aside>
+        
     </body>
     
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
