@@ -38,13 +38,8 @@ h6 {
     font-size: 2.5em;
 }
 
-.loading {
-    background-color: black;
-    z-index: 1000;
-}
-
 a {
-    color: #333333;
+    color: black;
 }
 
 a,
@@ -74,6 +69,12 @@ nav,
 .loading {
     opacity: 1;
     pointer-events: none;
+    background-color: black;
+    z-index: 1000;
+}
+
+.nojs {
+     display: none !important;
 }
 
 nav {
@@ -399,7 +400,14 @@ header aside:hover > i {
 .chapter_img {
     width: 100%;
     height: 500px;
+}
+
+#para_index_1 {
     background-image: url("../resources/images/p_bg1.jpg");
+}
+
+#para_part3_1 {
+    background-image: url("../resources/images/p_bg2.jpg");
 }
 
 main article, #p_bg1 aside {
@@ -417,6 +425,7 @@ main article, #p_bg1 aside {
 }
 
 #p_bg1 aside {
+    margin-top: 5px;
     padding: 30px 10px 30px 10px;
     color: white;
     border-radius: 5px;
@@ -424,12 +433,12 @@ main article, #p_bg1 aside {
 
 #p_bg1 #tl, #p_bg1 #bl {
     width: 40vw;
-    margin-right: 50%;
+    margin-right: 40%;
 }
 
 #p_bg1 #tr, #p_bg1 #br {
     width: 40vw;
-    margin-left: 50%;
+    margin-left: 40%;
 }
 
 .next_part {
@@ -477,9 +486,14 @@ main article, #p_bg1 aside {
     background-image: url("../resources/images/1566426.jpg");
 }
 
-#p_bg1, #part3overlay {
+#p_bg1, #part2overlay {
     background-image: url("../resources/images/Park_Trees_CG_Path_Trail_art_1920x1080.jpg");
 }
+
+#part3overlay {
+    background-image: url("../resources/images/art_artwork_artistic_city_cities_fantasy_architecture_building_original_2560x1440.jpg");
+}
+
 
 .next_hidden {
     left: 100vw;
@@ -505,6 +519,23 @@ main article, #p_bg1 aside {
     background-color: rgba(0, 0, 0, 0.75);
 }
 
+.col-2 {
+    height: 700px;
+    position: relative;
+}
+
+.col-2-ele, 
+.col-2-img {
+    width: 45%;
+    float: left;
+    padding: 5px;
+}
+
+.col-2-img {
+    height: 700px;
+    background-color: green;
+}
+
 footer {
     width: 100%;
     height: 70px;
@@ -517,6 +548,14 @@ footer {
 footer p {
     position: absolute;
 }
+
+/*
+@media (max-width:1024px) {
+    .to-top {
+        display: none;
+    }
+}
+*/
 
 /* sub 800px */
 
@@ -546,6 +585,7 @@ footer p {
     text-align: center;
     position: relative;
     top: 23%;
+    color: whitesmoke;
 }
 
 /* Utilities */

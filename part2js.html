@@ -14,12 +14,18 @@
         <link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:300,400" rel="stylesheet">
         <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
-        <script>
-            window.location.replace('part2js.html');
-        </script>
     </head>
 
-    <body style="overflow-y: auto;">
+    <body>
+        <aside class="loading">
+        </aside>
+        <aside class="nav_overlay">
+        </aside>
+        <aside class="nav_button">
+            <p>MENU</p>
+        </aside>
+        <aside class="nav_button_close">
+        </aside>
         <nav>
             <ul>
                 <a href="index.html">
@@ -63,11 +69,16 @@
                     </li>
                 </a>
             </ul>
+            <aside class="night_mode verticalcenter">
+                <p id="light">Turn off the lights</p>
+                <i class="ion-ios-lightbulb-outline"></i>
+                <p id="dark" class="hidden">Turn on the lights</p>
+            </aside>
         </nav>
 
         <main id='p1main'>
             <header>
-                <section class="bg bgstd" aria-label="grassy background">
+                <section class="bg bgstd" aria-label="Grassy background">
                 </section>
                 <section>
                     <h2>The Iron King</h2>
@@ -116,11 +127,15 @@
                         <p>It would be another ten years before I discovered what...</p>
                     </aside>
                     <article class="next_part verticalcenter" id="np_2">
-                        <a href='part3.html'>
-                            <h1 class="verticalcenter">Begin Part 3</h1>
-                        </a>
+                        <h1 class="verticalcenter">Begin Part 3</h1>
                     </article>
                 </article>
+            </section>
+
+            <section id='part2overlay' class="next_overlay next_hidden bgstd">
+                <a class="centerxy verticalcenter" href="part3.html">
+                    <h6 class="no_margin">My Name is Meghan Chase</h6>
+                </a>
             </section>
 
             <aside class="to-top">
@@ -131,5 +146,16 @@
             <p class="centerxy">The Iron King by Julie Kagawa | DECO1400project | Xinyi Li 2017</p>
             </footer>
         </main>
+
+        
     </body>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        //jQuery fallback
+        if (typeof(jQuery) === 'undefined') {
+            document.write('<script src="script/jquery-3.1.1.min.js"><'+'/script>'); 
+        }
+    </script>
+    <script src="script/script.js"></script> 
 </html>

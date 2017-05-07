@@ -14,12 +14,18 @@
         <link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:300,400" rel="stylesheet">
         <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
-        <script>
-            window.location.replace('part2js.html');
-        </script>
     </head>
 
     <body>
+        <aside class="loading">
+        </aside>
+        <aside class="nav_overlay">
+        </aside>
+        <aside class="nav_button">
+            <p>MENU</p>
+        </aside>
+        <aside class="nav_button_close">
+        </aside>
         <nav>
             <ul>
                 <a href="index.html">
@@ -63,6 +69,11 @@
                     </li>
                 </a>
             </ul>
+            <aside class="night_mode verticalcenter">
+                <p id="light">Turn off the lights</p>
+                <i class="ion-ios-lightbulb-outline"></i>
+                <p id="dark" class="hidden">Turn on the lights</p>
+            </aside>
         </nav>
 
         <main id='p1main'>
@@ -137,15 +148,33 @@
                     “She had a meeting with some of the ladies at church,” Luke murmured, turning back to his paper. “She won’t be back for a few hours, so you’ll have to take the bus.”
                     </p>
                 </article>
-                <article class="next_part verticalcenter">
-                        <a href='part4.html'>
-                            <h1 class="verticalcenter">Begin Part 3</h1>
-                        </a>
+                <article class="next_part verticalcenter"> 
+                        <h1 class="verticalcenter">Begin Part 4</h1>
                 </article>
             </section>
+
+            <section id='part3overlay' class="next_overlay next_hidden bgstd" aria-label="City background">
+                <a class="centerxy verticalcenter" href="part4js.html">
+                    <h6 class="no_margin">The Not So Typical Day</h6>
+                </a>
+            </section>
+
+            <aside class="to-top">
+                <i class="ion-chevron-up verticalcenter"></i>
+            </aside>
+
             <footer>
             <p class="centerxy">The Iron King by Julie Kagawa | DECO1400project | Xinyi Li 2017</p>
             </footer>
         </main>
     </body>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        //jQuery fallback
+        if (typeof(jQuery) === 'undefined') {
+            document.write('<script src="script/jquery-3.1.1.min.js"><'+'/script>'); 
+        }
+    </script>
+    <script src="script/script.js"></script> 
 </html>
