@@ -15,11 +15,20 @@
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:300,400" rel="stylesheet">
         <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
         <script>
-            window.location.replace('part3js.html');
+            window.location.replace('part4js.html');
         </script>
     </head>
 
-    <body style="overflow-y: auto;">
+    <body>
+        <aside class="loading">
+        </aside>
+        <aside class="nav_overlay">
+        </aside>
+        <aside class="nav_button">
+            <p>MENU</p>
+        </aside>
+        <aside class="nav_button_close">
+        </aside>
         <nav>
             <ul>
                 <a href="index.html">
@@ -59,10 +68,15 @@
                 </a>
                 <a href="part8.html">
                     <li>
-                        <p>Part 8<span class="numerals">n</span></p>
+                        <p>Part n<span class="numerals">n</span></p>
                     </li>
                 </a>
             </ul>
+            <aside class="night_mode verticalcenter">
+                <p id="light">Turn off the lights</p>
+                <i class="ion-ios-lightbulb-outline"></i>
+                <p id="dark" class="hidden">Turn on the lights</p>
+            </aside>
         </nav>
 
         <main id='p1main'>
@@ -72,28 +86,30 @@
                 <section>
                     <h2>The Iron King</h2>
                     <hr>
-                    <h6 class="no_margin">My Name is Meghan Chase</h6>
+                    <h6 class="no_margin">A Typical Morning</h6>
                     <aside class="centerx">
-                        <p>Begin Part 3</p>
+                        <p>Begin Part 4</p>
                         <i class="ion-chevron-down"></i>
                     </aside>
                 </section>
             </header>
 
-                        <section class="chapter">
+            <section class="chapter">
                 <article>
-                    <h6 class="no_margin">My Name is Meghan Chase</h6>
+                    <h6 class="no_margin">The Not So Typical Day</h6>
                     <hr>
                     <p>
-                    In less than twenty-four hours, I’ll be sixteen years old.
+                    I always took the bus. I just wanted to remind Mom that she was supposed to take me to get a learner’s permit this weekend. With Luke, it was hopeless. I could tell him something fourteen different times, and he’d forget it the moment I left the room. It wasn’t that Luke was mean or malicious, or even stupid. He adored Ethan, and Mom seemed truly happy with him. But, every time I spoke to my stepdad, he would look at me with genuine surprise, as if he’d forgotten I lived here, too.
                     </p>
                     <br>
                     <p>
-                    Sweet sixteen. It has a magical ring to it. Sixteen is supposed to be the age when girls become princesses and fall in love and go to dances and proms and such. Countless stories, songs, and poems have been written about this wonderful age, when a girl finds true love and the stars shine for her and the handsome prince carries her off into the sunset.
+                    I grabbed a bagel from the top of the fridge and chewed it sullenly, keeping an eye on the clock. Beau, our German shepherd, wandered in and put his big head on my knee. I scratched him behind the ears and he groaned. At least the dog appreciated me.
                     </p>
                 </article>
-                <aside id="para_part3_1"class="chapter_img bgstd no_margin">
-                </aside>
+                <article class="col-2">
+                    <aside id="para_part3_1"class="chapter_img bgstd no_margin">
+                    </aside>
+                </article>
                 <article>
                     <p>I didn’t think it would be that way for me.</p>
                     <br>
@@ -143,15 +159,33 @@
                     “She had a meeting with some of the ladies at church,” Luke murmured, turning back to his paper. “She won’t be back for a few hours, so you’ll have to take the bus.”
                     </p>
                 </article>
-                <article class="next_part verticalcenter">
-                        <a href='part4js.html'>
-                            <h1 class="verticalcenter">Begin Part 4</h1>
-                        </a>
+                <article class="next_part verticalcenter"> 
+                        <h1 class="verticalcenter">Begin Part 4</h1>
                 </article>
             </section>
+
+            <section id='part3overlay' class="next_overlay next_hidden bgstd" aria-label="City background">
+                <a class="centerxy verticalcenter" href="part4js.html">
+                    <h6 class="no_margin">The Not So Typical Day</h6>
+                </a>
+            </section>
+
+            <aside class="to-top">
+                <i class="ion-chevron-up verticalcenter"></i>
+            </aside>
+
             <footer>
             <p class="centerxy">The Iron King by Julie Kagawa | DECO1400project | Xinyi Li 2017</p>
             </footer>
         </main>
     </body>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        //jQuery fallback
+        if (typeof(jQuery) === 'undefined') {
+            document.write('<script src="script/jquery-3.1.1.min.js"><'+'/script>'); 
+        }
+    </script>
+    <script src="script/script.js"></script> 
 </html>

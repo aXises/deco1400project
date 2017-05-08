@@ -32,9 +32,18 @@ $(function(){
         $(window).scroll(function(){
 			var wintop = $(window).scrollTop();
 			$('header').css('opacity', 1 - wintop / 1000);
+            $('#p_bg1').css('opacity', wintop / 1500);
             $('.chapter_img').css({
                 'filter': 'hue-rotate('+(1 - wintop / 10)+'deg)',
                 'background-position-y': (1 - wintop / 4)+'px'
+            });
+            $('#para_part4_1').css({
+                'filter': 'hue-rotate('+(wintop / 10)+'deg)',
+                'background-position-y': (1 - wintop / 4)+'px'
+            });
+            $('#para_part4_2').css({
+                'filter': 'hue-rotate('+(1 - wintop / 10)+'deg)',
+                'background-position-y': (wintop / 4)+'px'
             });
 		});
 
@@ -80,7 +89,13 @@ $(function(){
 
         //Page scroll
         $('header aside').click(function(){
-            scrollDown(height)
+            scrollDown(height);
+        });
+
+        $('#p3_int_1, #p3_int_2').click(function(){
+            var x = $(this).parent().offset().top;
+            var newHeight = parseInt(x) + parseInt(height);
+            scrollDown(newHeight);
         });
 
         //Scroll to top
@@ -102,7 +117,6 @@ $(function(){
             else {
                 $('body').fadeOut(750, redirect);
             }
-
             function redirect(){
                 window.location = page
             }
@@ -163,10 +177,10 @@ $(function(){
             }
         );
 
-        function scrollDown(height) {
+        function scrollDown(height){
             $('body').animate({
                 scrollTop: ('+=%i', height)
-            },700)
+            },700);
         }
 
         function navToggle(){

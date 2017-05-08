@@ -410,6 +410,14 @@ header aside:hover > i {
     background-image: url("../resources/images/p_bg2.jpg");
 }
 
+#para_part4_1 {
+    background-image: url("../resources/images/DSCN4197.jpg");
+}
+
+#para_part4_2 {
+    background-image: url("../resources/images/DSCN4197.jpg");
+}
+
 main article, #p_bg1 aside {
     width: 55vw;
     padding: 150px 0 100px 0;
@@ -529,11 +537,29 @@ main article, #p_bg1 aside {
     width: 45%;
     float: left;
     padding: 5px;
+    padding-bottom: 0 !important;
 }
 
 .col-2-img {
+    width: 49%;
     height: 700px;
     background-color: green;
+}
+
+.interchapter {
+    height: 100vh;
+    padding: 0;
+    position: relative;
+}
+
+.interchapter p, .interchapter i {
+    position: absolute;
+    cursor: pointer;
+}
+
+.interchapter i {
+    margin-top: 30px;
+    animation: none;
 }
 
 footer {
