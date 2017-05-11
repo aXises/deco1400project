@@ -397,7 +397,8 @@ header aside:hover > i {
     color: white;
 }
 
-.chapter_img {
+.chapter_img,
+.chapter_img_s {
     width: 100%;
     height: 500px;
 }
@@ -411,11 +412,19 @@ header aside:hover > i {
 }
 
 #para_part4_1 {
-    background-image: url("../resources/images/DSCN4197.jpg");
+    background-image: url("../resources/images/coffee-shop-2200250_1920.jpg");
 }
 
 #para_part4_2 {
-    background-image: url("../resources/images/DSCN4197.jpg");
+    background-image: url("../resources/images/kitchen_old-kitchen_oven-kitchen_gas-stove_stainless-steel-pan_granite-kitchen-countertop_white-kitchen-cabinets_white-kitchen-cupboard-and-plate-racks_kitchen-utensil-ha.jpg");
+}
+
+#para_part5_1 {
+    background-image: url("../resources/images/lightning-399853_1920.jpg");
+}
+
+#para_part5_1:hover {
+    background-image: url("../resources/images/lightning-1056419_1920.jpg");
 }
 
 main article, #p_bg1 aside {
@@ -500,6 +509,10 @@ main article, #p_bg1 aside {
 
 #part3overlay {
     background-image: url("../resources/images/art_artwork_artistic_city_cities_fantasy_architecture_building_original_2560x1440.jpg");
+}
+
+#part4overlay {
+    background-image: url("../resources/images/pumpkin-1789832_1920.jpg");
 }
 
 
@@ -727,7 +740,8 @@ nav li,
 nav li:hover,
 header aside,
 .night_mode i,
-.next_part h1 {
+.next_part h1,
+#para_part5_1 {
     -webkit-transition: all 0.15s ease-in-out;
     -moz-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;
