@@ -73,6 +73,10 @@ nav,
     z-index: 1000;
 }
 
+.nojs {
+     display: none !important;
+}
+
 nav {
     z-index: 100;
     width: 300px;
@@ -237,13 +241,6 @@ nav li:hover .numerals {
 }
 
 @media (max-width:1600px) {
-    nav {
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-    h1 {
-        font-size: 3em;
-    }
     nav ul {
         margin-top: 80px;
     }
@@ -349,7 +346,7 @@ header i {
     animation: arrow-float ease-in-out infinite 2.5s;
 }
 
-header aside:hover>i {
+header aside:hover > i {
     opacity: 0.8;
 }
 
@@ -400,7 +397,8 @@ header aside:hover>i {
     color: white;
 }
 
-.chapter_img {
+.chapter_img,
+.chapter_img_s {
     width: 100%;
     height: 500px;
 }
@@ -414,15 +412,22 @@ header aside:hover>i {
 }
 
 #para_part4_1 {
-    background-image: url("../resources/images/DSCN4197.jpg");
+    background-image: url("../resources/images/coffee-shop-2200250_1920.jpg");
 }
 
 #para_part4_2 {
-    background-image: url("../resources/images/DSCN4197.jpg");
+    background-image: url("../resources/images/kitchen_old-kitchen_oven-kitchen_gas-stove_stainless-steel-pan_granite-kitchen-countertop_white-kitchen-cabinets_white-kitchen-cupboard-and-plate-racks_kitchen-utensil-ha.jpg");
 }
 
-main article,
-#p_bg1 aside {
+#para_part5_1 {
+    background-image: url("../resources/images/lightning-399853_1920.jpg");
+}
+
+#para_part5_1:hover {
+    background-image: url("../resources/images/lightning-1056419_1920.jpg");
+}
+
+main article, #p_bg1 aside {
     width: 55vw;
     padding: 150px 0 100px 0;
     margin: auto;
@@ -443,14 +448,12 @@ main article,
     border-radius: 5px;
 }
 
-#p_bg1 #tl,
-#p_bg1 #bl {
+#p_bg1 #tl, #p_bg1 #bl {
     width: 40vw;
     margin-right: 40%;
 }
 
-#p_bg1 #tr,
-#p_bg1 #br {
+#p_bg1 #tr, #p_bg1 #br {
     width: 40vw;
     margin-left: 40%;
 }
@@ -500,14 +503,18 @@ main article,
     background-image: url("../resources/images/1566426.jpg");
 }
 
-#p_bg1,
-#part2overlay {
+#p_bg1, #part2overlay {
     background-image: url("../resources/images/Park_Trees_CG_Path_Trail_art_1920x1080.jpg");
 }
 
 #part3overlay {
     background-image: url("../resources/images/art_artwork_artistic_city_cities_fantasy_architecture_building_original_2560x1440.jpg");
 }
+
+#part4overlay {
+    background-image: url("../resources/images/pumpkin-1789832_1920.jpg");
+}
+
 
 .next_hidden {
     left: 100vw;
@@ -538,7 +545,7 @@ main article,
     position: relative;
 }
 
-.col-2-ele,
+.col-2-ele, 
 .col-2-img {
     width: 45%;
     float: left;
@@ -558,8 +565,7 @@ main article,
     position: relative;
 }
 
-.interchapter p,
-.interchapter i {
+.interchapter p, .interchapter i {
     position: absolute;
     cursor: pointer;
 }
@@ -582,7 +588,6 @@ footer p {
     position: absolute;
 }
 
-
 /*
 @media (max-width:1024px) {
     .to-top {
@@ -591,34 +596,14 @@ footer p {
 }
 */
 
-
 /* sub 800px */
 
 @media (max-width:800px) {
-    p {
-        font-size: 0.7em;
-    }
-    h1 {
-        font-size: 2em;
-    }
     .numerals {
         display: none;
     }
     nav ul {
         margin-top: 100px;
-    }
-    .next_part h1 {
-        font-size: 1.5em;
-        padding: 20px;
-    }
-    main article {
-        width: 90vw;
-    }
-}
-
-@media (max-width:450px) {
-    .menuvisible {
-        width: 100%;
     }
 }
 
@@ -641,7 +626,6 @@ footer p {
     top: 23%;
     color: whitesmoke;
 }
-
 
 /* Utilities */
 
@@ -693,14 +677,12 @@ footer p {
     pointer-events: none;
 }
 
-.centerx,
-.centerxy {
+.centerx, .centerxy {
     left: 50%;
     transform: translateX(-50%);
 }
 
-.centery,
-.centerxy {
+.centery, .centerxy {
     top: 47.5%;
     transform: translateY(-50%);
 }
@@ -758,7 +740,8 @@ nav li,
 nav li:hover,
 header aside,
 .night_mode i,
-.next_part h1 {
+.next_part h1,
+#para_part5_1 {
     -webkit-transition: all 0.15s ease-in-out;
     -moz-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;

@@ -1,7 +1,7 @@
 //JavaScript Document
 
-$(function(){
-    $(document).ready(function(){
+$(function() {
+    $(document).ready(function() {
         //loading
         console.log('dom ready');
 
@@ -13,42 +13,48 @@ $(function(){
         var position = $(window).scrollTop() + 50;
 
         //Wait for images
-        $(window).on("load", function(){
+        $(window).on("load", function() {
             loading();
         });
         
         //Load after 5 seconds if images hasn't been loaded
-        setTimeout(function(){
+        setTimeout(function() {
             if (!loaded){
                 loading();
             }
         },5000)
 
         //Update global height on resize
-        $(window).resize(function(){
+        $(window).resize(function() {
             height = $(this).height();
         });
 
-        $(window).scroll(function(){
+        $(window).scroll(function() {
 			var wintop = $(window).scrollTop();
 			$('header').css('opacity', 1 - wintop / 1000);
             $('#p_bg1').css('opacity', wintop / 1500);
             $('.chapter_img').css({
-                'filter': 'hue-rotate('+(1 - wintop / 10)+'deg)',
-                'background-position-y': (1 - wintop / 4)+'px'
+                'filter': 'hue-rotate('+(1 - wintop / 10) + 'deg)',
+                'background-position-y': (1 - wintop / 4) + 'px'
             });
             $('#para_part4_1').css({
-                'filter': 'hue-rotate('+(wintop / 10)+'deg)',
-                'background-position-y': (1 - wintop / 4)+'px'
+                'background-position-y': (1 - wintop / 6) + 150 +'px'
             });
             $('#para_part4_2').css({
-                'filter': 'hue-rotate('+(1 - wintop / 10)+'deg)',
-                'background-position-y': (wintop / 4)+'px'
+                'background-position-y': (wintop / 6) - 300 +'px'
             });
 		});
 
+
+        //do {
+        //   setTimeout(function(){
+        //       $('#para_part5_1').css('background-image','url("../resources/images/coffee-shop-2200250_1920.jpg");');
+        //   },5000);
+        //}
+        //while (true);
+
         //Navigation-open
-        $('.nav_button').click(function(){
+        $('.nav_button').click(function() {
             $(this).css("pointer-events", "none");
             $(this).addClass('nav_button_hidden')
             $('.nav_button_close').css("pointer-events", "all");
@@ -56,7 +62,7 @@ $(function(){
         });
 
         //Navigation-close
-        $('.nav_button_close').click(function(){
+        $('.nav_button_close').click(function() {
             $(this).css("pointer-events", "none");
             $('.nav_button').css("pointer-events", "all");
             $('.nav_button').removeClass('nav_button_hidden');
@@ -64,7 +70,7 @@ $(function(){
         });
 
         //Light toggle
-        $('.night_mode i').click(function(){
+        $('.night_mode i').click(function() {
             $('#light').toggleClass('hidden');
             $('#dark').toggleClass('hidden');
             $(this).toggleClass('ion-ios-lightbulb').toggleClass('ion-ios-lightbulb-outline');
@@ -72,11 +78,11 @@ $(function(){
         });
 
         //Next part overlay toggle
-        $('.next_part h1').click(function(){
+        $('.next_part h1').click(function() {
             overlayToggle();
         });
 
-        $('.next_overlay').click(function(){
+        $('.next_overlay').click(function() {
             overlayToggle();
             $('.to-top').css('right','0px');
         });
@@ -88,11 +94,11 @@ $(function(){
         }
 
         //Page scroll
-        $('header aside').click(function(){
+        $('header aside').click(function() {
             scrollDown(height);
         });
 
-        $('#p3_int_1, #p3_int_2').click(function(){
+        $('#p3_int_1, #p3_int_2').click(function() {
             var x = $(this).parent().offset().top;
             var newHeight = parseInt(x) + parseInt(height);
             scrollDown(newHeight);
@@ -106,24 +112,24 @@ $(function(){
         });
 
         //Page change
-        $('a').click(function(event){
+        $('a').click(function(event) {
             event.preventDefault();
             var page = $(this).attr('href');
             var pageUrl = window.location.href
             var pageLocation = pageUrl.split('/').pop();
-            if (pageLocation === page){
+            if (pageLocation === page) {
                 scrollDown(height);
             }
             else {
                 $('body').fadeOut(750, redirect);
             }
-            function redirect(){
+            function redirect() {
                 window.location = page
             }
         });
 
         //Page animations
-        $(window).scroll(function(){
+        $(window).scroll(function() {
             var position = $(this).scrollTop() + 50;
             //Full height offset
             if (position > height && light){
@@ -142,7 +148,7 @@ $(function(){
             }
 
             //Half height offset
-            if (position > height/2){
+            if (position > height/2) {
                 $('.to-top').css('right','0px');
             }
             else {
@@ -150,7 +156,7 @@ $(function(){
             }
 
             //Quarter height offset
-            if (position > height/4){
+            if (position > height/4) {
                 $('header aside').css('opacity','0');
             }
             else {
@@ -160,44 +166,44 @@ $(function(){
 
         //Other
         $('.next_overlay a').hover(
-            function(){
+            function() {
                 $('.next_overlay').css('filter', 'saturate(100%)')
             },
-            function(){
+            function() {
                 $('.next_overlay').css('filter', 'saturate(0%)')
             }
         );
 
         $('.p_background').hover(
-            function(){
+            function() {
                 $(this).css('background-color', 'rgba(0, 0, 0, 0.75)')
             },
-            function(){
+            function() {
                 $(this).css('background-color', 'rgba(0, 0, 0, 0)')
             }
         );
 
-        function scrollDown(height){
+        function scrollDown(height) {
             $('body').animate({
                 scrollTop: ('+=%i', height)
             },700);
         }
 
-        function navToggle(){
+        function navToggle() {
             $('.nav_overlay, nav').toggleClass('menuvisible');
             $('#main, .nav_overlay').toggleClass('menuopen');
             $('.nav_button_close').toggleClass('menutransform-open');
         }
 
-        function loading(){
+        function loading() {
             $('.loading').addClass('hidden');
             $('.loading').css('pointer-events','none');
             $('body').css('overflow-y', 'auto');
             loaded = true
         }
 
-        function lightToggle(){
-            if (light){
+        function lightToggle() {
+            if (light) {
                 $('main').addClass('main_invert');
                 light = false
             }
