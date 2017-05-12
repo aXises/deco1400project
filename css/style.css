@@ -240,21 +240,6 @@ nav li:hover .numerals {
     color: limegreen;
 }
 
-@media (max-width:1600px) {
-    nav ul {
-        margin-top: 80px;
-    }
-    nav li {
-        padding: 0;
-    }
-    .night_mode {
-        margin: 30px 0 20px 0;
-    }
-    #dark {
-        top: -88px;
-    }
-}
-
 header,
 header section,
 .nav_overlay,
@@ -403,6 +388,10 @@ header aside:hover > i {
     height: 500px;
 }
 
+.nodisplay {
+    display: none;
+}
+
 #para_index_1 {
     background-image: url("../resources/images/p_bg1.jpg");
 }
@@ -411,12 +400,20 @@ header aside:hover > i {
     background-image: url("../resources/images/p_bg2.jpg");
 }
 
+#col_part3_1 {
+    background-image: url("../resources/images/pexels-photo-48520.jpeg");
+}
+
 #para_part4_1 {
     background-image: url("../resources/images/coffee-shop-2200250_1920.jpg");
 }
 
 #para_part4_2 {
     background-image: url("../resources/images/kitchen_old-kitchen_oven-kitchen_gas-stove_stainless-steel-pan_granite-kitchen-countertop_white-kitchen-cabinets_white-kitchen-cupboard-and-plate-racks_kitchen-utensil-ha.jpg");
+}
+
+#col_part4_1 {
+    background-image: url("../resources/images/gift-jeans-fashion-pack-157879.jpg");
 }
 
 #para_part5_1 {
@@ -508,6 +505,13 @@ main article, #p_bg1 section {
     background-image: url("../resources/images/pumpkin-1789832_1920.jpg");
 }
 
+#part5overlay {
+    background-image: url("../resources/images/pexels-photo-39811.jpeg");
+}
+
+#part6overlay {
+    background-image: url("../resources/images/pexels-photo-268533.jpeg");
+}
 
 .next_hidden {
     left: 100vw;
@@ -540,16 +544,16 @@ main article, #p_bg1 section {
 
 .col-2-ele, 
 .col-2-img {
-    width: 45%;
+    width: 48%;
     float: left;
-    padding: 5px;
+    padding: 10px;
     padding-bottom: 0 !important;
 }
 
 .col-2-img {
-    width: 49%;
     height: 700px;
-    background-color: green;
+    border-radius: 5px;
+
 }
 
 .interchapter {
@@ -568,6 +572,10 @@ main article, #p_bg1 section {
     animation: none;
 }
 
+#p3_int_1:hover {
+    color: green;
+}
+
 footer {
     width: 100%;
     height: 70px;
@@ -581,15 +589,33 @@ footer p {
     position: absolute;
 }
 
-/*
-@media (max-width:1024px) {
-    .to-top {
-        display: none;
+@media (max-width:1600px) {
+    nav {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    h1 {
+        font-size: 3em;
+    }
+    nav ul {
+        margin-top: 80px;
+    }
+    nav li {
+        padding: 0;
+    }
+    .night_mode {
+        margin: 30px 0 20px 0;
+    }
+    #dark {
+        top: -88px;
     }
 }
-*/
 
-/* sub 800px */
+@media (max-width:1000px) {
+    .col-2-ele, .col-2-img {
+        padding: 0;
+    }
+}
 
 @media (max-width:800px) {
     p {
@@ -742,7 +768,8 @@ header i,
 .next_hidden,
 .next_overlay,
 .next_overlay a,
-.p_background {
+.p_background,
+#p3_int_1 {
     -webkit-transition: all 0.35s ease-in-out;
     -moz-transition: all 0.35s ease-in-out;
     transition: all 0.35s ease-in-out;

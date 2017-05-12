@@ -99,6 +99,7 @@ $(function() {
         });
 
         $('#p3_int_1, #p3_int_2').click(function() {
+            $('.nodisplay').css('display','block');
             var x = $(this).parent().offset().top;
             var newHeight = parseInt(x) + parseInt(height);
             scrollDown(newHeight);
@@ -137,14 +138,12 @@ $(function() {
                     'border':'#525252 solid 2px',
                     'color':'#525252'
                 });
-                
             }
             else {
                 $('.nav_button, .numerals').css({
                     'border':'white solid 2px',
                     'color':'white'
                 });
-                
             }
 
             //Half height offset
