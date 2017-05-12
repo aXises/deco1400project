@@ -45,14 +45,6 @@ $(function() {
             });
 		});
 
-
-        //do {
-        //   setTimeout(function(){
-        //       $('#para_part5_1').css('background-image','url("../resources/images/coffee-shop-2200250_1920.jpg");');
-        //   },5000);
-        //}
-        //while (true);
-
         //Navigation-open
         $('.nav_button').click(function() {
             $(this).css("pointer-events", "none");
@@ -70,11 +62,17 @@ $(function() {
         });
 
         //Light toggle
-        $('.night_mode i').click(function() {
+        $('.night_mode i, #light-sure').click(function() {
             $('#light').toggleClass('hidden');
             $('#dark').toggleClass('hidden');
-            $(this).toggleClass('ion-ios-lightbulb').toggleClass('ion-ios-lightbulb-outline');
+            $('.night_mode i').toggleClass('ion-ios-lightbulb').toggleClass('ion-ios-lightbulb-outline');
             lightToggle();
+        });
+
+        var warning = false
+        $('#light-sure, #light-nn').click(function(){
+            $('.light-warning').addClass('hidden');
+            warning = true
         });
 
         //Next part overlay toggle
@@ -85,6 +83,20 @@ $(function() {
         $('.next_overlay').click(function() {
             overlayToggle();
             $('.to-top').css('right','0px');
+        });
+
+        var expand = false
+        $('#para_part5_1').click(function(){
+            var thisHeight = $(this).offset().top;
+            scrollDown(thisHeight);
+            if (!expand) {
+                $(this).css('height','100vh');
+            }
+            else {
+                $(this).css('height','500px');
+            }
+            expand = !expand
+            lightToggle()
         });
 
         function overlayToggle() {
@@ -138,6 +150,9 @@ $(function() {
                     'border':'#525252 solid 2px',
                     'color':'#525252'
                 });
+                if (!warning) {
+                    $('.light-warning').removeClass('hidden');
+                }
             }
             else {
                 $('.nav_button, .numerals').css({
@@ -204,12 +219,11 @@ $(function() {
         function lightToggle() {
             if (light) {
                 $('main').addClass('main_invert');
-                light = false
             }
             else {
                 $('main').removeClass('main_invert');
-                light = true
             }
+            light = !light
         }
 
     }); //End of document ready
