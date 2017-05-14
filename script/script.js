@@ -29,6 +29,12 @@ $(function() {
             height = $(this).height();
         });
 
+        $('.chapter h6').css({
+            right: '50vw',
+            opacity: 0,
+        });
+
+        //Parallax effects
         $(window).scroll(function() {
 			var wintop = $(window).scrollTop();
 			$('header').css('opacity', 1 - wintop / 1000);
@@ -172,6 +178,10 @@ $(function() {
             //Quarter height offset
             if (position > height/4) {
                 $('header aside').css('opacity','0');
+                $('.chapter h6').css({
+                    right: 0,
+                    opacity: 1,
+                });
             }
             else {
                 $('header aside').css('opacity','1');

@@ -290,6 +290,8 @@ main {
     color: whitesmoke;
 }
 
+
+
 header h6 {
     font-weight: 300;
 }
@@ -367,6 +369,7 @@ header aside:hover > i {
 
 .chapter h6 {
     color: inherit;
+    position: relative;
 }
 
 .chapter i {
@@ -399,6 +402,7 @@ header aside:hover > i {
 #col_part3_1 {
     background-image: url("../resources/images/pexels-photo-48520.jpeg");
 }
+
 #para_part4_1,
 #para_part4_2  {
     width: 50% !important;
@@ -423,6 +427,28 @@ header aside:hover > i {
 
 #para_part5_1:hover {
     background-image: url("../resources/images/lightning-1056419_1920.jpg");
+}
+
+#part7_img {
+    animation: imageCycle 6s ease infinite;
+}
+
+@keyframes imageCycle {
+    0% {
+        background-image: url("../resources/images/p7_1.jpg");
+    }
+    25% {
+        background-image: url("../resources/images/p7_2.jpg");
+    }
+    50% {
+        background-image: url("../resources/images/p7_1.jpg");
+    }
+    75% {
+        background-image: url("../resources/images/p7_2.jpg");
+    }
+    100% {
+        background-image: url("../resources/images/p7_1.jpg");
+    }
 }
 
 main article, #p_bg1 section {
@@ -837,4 +863,10 @@ header aside,
     -webkit-transition: all 0.45s ease-in-out;
     -moz-transition: all 0.45s ease-in-out;
     transition: all 0.45s ease-in-out;
+}
+
+.chapter h6 {
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;    
 }
