@@ -540,6 +540,24 @@ main article, #p_bg1 section {
     background-image: url("../resources/images/pexels-photo-268533.jpeg");
 }
 
+#p8_ic {
+    width: 100vw !important;
+    color: white;
+    background-image: url("../resources/images/rain-122691_1920.jpg");
+}
+
+#p8_ic p {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 10px 20px 20px 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0);
+}
+
+#p8_ic p:hover {
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
 .next_hidden {
     left: 100vw;
 }
@@ -604,7 +622,7 @@ main article, #p_bg1 section {
 }
 
 #p3_int_1:hover {
-    color: green;
+    color: limegreen;
 }
 
 footer {
@@ -842,7 +860,8 @@ header i,
 .p_background,
 #p3_int_1,
 .light-warning,
-.light-warning button {
+.light-warning button,
+#p8_ic p {
     -webkit-transition: all 0.35s ease-in-out;
     -moz-transition: all 0.35s ease-in-out;
     transition: all 0.35s ease-in-out;
