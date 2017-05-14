@@ -739,7 +739,7 @@ footer p {
     height: 50px;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
-    right: -52px;
+    right: -62px;
     bottom: 50px;
     z-index: 5;
     cursor: pointer;
@@ -752,6 +752,15 @@ footer p {
     position: relative;
     top: 23%;
     color: whitesmoke;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color:limegreen;
 }
 
 /* Utilities */
