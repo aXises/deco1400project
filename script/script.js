@@ -81,15 +81,37 @@ $(function() {
             warning = true
         });
 
-        //Next part overlay toggle
+        //Overlay toggles
+        $('#p3_int_3').click(function() {
+           overlayToggle('#part3overlay_alt');
+        });
+
+        $('#p3_int_4').click(function() {
+           overlayToggle('#part3overlay_alt_2');
+        });
+
+        $('#p8alt_1').click(function() {
+           overlayToggle('#part8overlay_1');
+        });
+
+        $('#p8alt_2').click(function() {
+           overlayToggle('#part8overlay_2');
+        });
+
         $('.next_part h1').click(function() {
-            overlayToggle();
+            overlayToggle('.next_overlay');
         });
 
         $('.next_overlay').click(function() {
-            overlayToggle();
+            overlayToggle('.next_overlay');
             $('.to-top').css('right','0px');
         });
+
+        function overlayToggle(overlay) {
+            $(overlay).toggleClass('next_hidden');
+            $('body').toggleClass('no_overflow');
+            $('.to-top').css('right', pos_right);
+        }
 
         var expand = false
         $('#para_part5_1').click(function(){
@@ -102,14 +124,8 @@ $(function() {
                 $(this).css('height','500px');
             }
             expand = !expand
-            lightToggle()
+            lightToggle();
         });
-
-        function overlayToggle() {
-            $('.next_overlay').toggleClass('next_hidden');
-            $('body').toggleClass('no_overflow');
-            $('.to-top').css('right', pos_right);
-        }
 
         //Page scroll
         $('header aside').click(function() {

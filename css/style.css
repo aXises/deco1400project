@@ -89,7 +89,7 @@ header section {
 }
 
 nav ul {
-    margin-top: 220px;
+    margin-top: 170px;
     padding: 0;
 }
 
@@ -506,7 +506,8 @@ main article, #p_bg1 section {
     color: black !important;
 }
 
-.next_overlay {
+.next_overlay,
+.text_overlay {
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -514,6 +515,10 @@ main article, #p_bg1 section {
     left: 0;
     filter: saturate(0%);
     z-index: 105;
+}
+
+.text_overlay {
+    background-color: black;
 }
 
 #index_overlay {
@@ -562,7 +567,8 @@ main article, #p_bg1 section {
     left: 100vw;
 }
 
-.next_overlay a {
+.next_overlay a,
+.text_overlay a {
     color: white;
     padding: 30px;
     font-family: inherit;
@@ -570,6 +576,10 @@ main article, #p_bg1 section {
     border: white solid 1px;
     background-color: rgba(0, 0, 0, 0.55);
     cursor: pointer;
+}
+
+.text_overlay a {
+    border: none;
 }
 
 .next_overlay a:hover {
@@ -606,6 +616,7 @@ main article, #p_bg1 section {
 }
 
 .interchapter {
+    width: 100vw;
     height: 100vh;
     padding: 0;
     position: relative;
@@ -623,6 +634,14 @@ main article, #p_bg1 section {
 
 #p3_int_1:hover {
     color: limegreen;
+}
+
+#p3_int_3 {
+    left: 75%;
+}
+
+#p3_int_4 {
+    left: 25%;
 }
 
 footer {
@@ -698,6 +717,9 @@ footer p {
     #dark {
         top: -88px;
     }
+    .col-2-ele {
+        width: 47%;
+    }
 }
 
 @media (max-width:1000px) {
@@ -707,6 +729,10 @@ footer p {
 }
 
 @media (max-width:800px) {
+    .col-2-ele, .col-2-img {
+        width: 100%;
+        margin: 0;
+    }
     p {
         font-size: 0.7em;
     }
@@ -870,7 +896,8 @@ header i,
 #p3_int_1,
 .light-warning,
 .light-warning button,
-#p8_ic p {
+#p8_ic p,
+.text_overlay {
     -webkit-transition: all 0.35s ease-in-out;
     -moz-transition: all 0.35s ease-in-out;
     transition: all 0.35s ease-in-out;
