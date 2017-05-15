@@ -780,6 +780,41 @@ footer p {
     color: whitesmoke;
 }
 
+form,
+#about article {
+    margin-top: 20px;
+}
+
+form p {
+    line-height: 25px;
+}
+
+#about section {
+    height: 100vh;
+    padding-top:50px;
+}
+
+#about article {
+    padding: 20px 0 0 0;
+}
+
+input[type=submit] {
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+#contacts {
+    padding: 50px;
+    color: black;
+}
+
+#contacts h6 {
+    font-size: 1.5em;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
     background-color: rgba(0, 0, 0, 0.5);
