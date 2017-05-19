@@ -1,9 +1,10 @@
 //JavaScript Document
 
 $(function() {
+    //"use strict";
     $(document).ready(function() {
         //loading
-        console.log('dom ready');
+        //console.log('dom ready');
 
         //Global variables
         var loaded = false //Default page loading state
@@ -80,38 +81,6 @@ $(function() {
             $('.light-warning').addClass('hidden');
             warning = true
         });
-
-        //Overlay toggles
-        $('#p3_int_3').click(function() {
-           overlayToggle('#part3overlay_alt');
-        });
-
-        $('#p3_int_4').click(function() {
-           overlayToggle('#part3overlay_alt_2');
-        });
-
-        $('#p8alt_1').click(function() {
-           overlayToggle('#part8overlay_1');
-        });
-
-        $('#p8alt_2').click(function() {
-           overlayToggle('#part8overlay_2');
-        });
-
-        $('.next_part h1').click(function() {
-            overlayToggle('.next_overlay');
-        });
-
-        $('.next_overlay').click(function() {
-            overlayToggle('.next_overlay');
-            $('.to-top').css('right','0px');
-        });
-
-        function overlayToggle(overlay) {
-            $(overlay).toggleClass('next_hidden');
-            $('body').toggleClass('no_overflow');
-            $('.to-top').css('right', pos_right);
-        }
 
         var expand = false
         $('#para_part5_1').click(function(){
@@ -204,7 +173,39 @@ $(function() {
             }
         });
 
-        //Other
+        //Overlay toggles
+        $('#p3_int_3').click(function() {
+            overlayToggle('#partoverlay_alt');
+        });
+
+        $('#p3_int_4').click(function() {
+            overlayToggle('#partoverlay_alt_2');
+        });
+
+        $('#p8alt_1').click(function() {
+            overlayToggle('#part8overlay_1');
+        });
+
+        $('#p8alt_2').click(function() {
+            overlayToggle('#part8overlay_2');
+        });
+
+        $('.next_part h1').click(function() {
+            overlayToggle('.next_overlay');
+        });
+
+        $('.next_overlay').click(function() {
+            overlayToggle('.next_overlay');
+            $('.to-top').css('right','0px');
+        });
+
+        //Functions
+        function overlayToggle(overlay) {
+            $(overlay).toggleClass('next_hidden');
+            $('body').toggleClass('no_overflow');
+            $('.to-top').css('right', pos_right);
+        }
+
         $('.next_overlay a').hover(
             function() {
                 $('.next_overlay').css('filter', 'saturate(100%)')
