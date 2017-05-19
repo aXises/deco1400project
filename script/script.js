@@ -1,42 +1,56 @@
 //JavaScript Document
 
+/** Initialize jQuery. */
 $(function() {
+
     //"use strict";
+
+    /** Wait for DOM.  */
     $(document).ready(function() {
-        //loading
-        //console.log('dom ready');
 
-        //Global variables
+        /** Initialize global variables.  */
+
+        /** @global */
         var loaded = false //Default page loading state
-        var light = true //Default light state
-        var height = $(window).height(); //Window height
-        var pos_right = $('.to-top').css('right'); //To-top right position
-        var position = $(window).scrollTop() + 50;
 
-        //Wait for images
+        /** @global */
+        var light = true //Default light state
+
+        /** @global */
+        var height = $(window).height(); //Window height
+
+        /** @global */
+        var pos_right = $('.to-top').css('right'); //To-top right position
+
+        /** @global */
+        var position = $(window).scrollTop() + 50; //Vertical position of top plus 50
+
+        /** Wait for images before loading. */
         $(window).on("load", function() {
             loading();
         });
         
-        //Load after 5 seconds if images hasn't been loaded
+        /** Load after 5 seconds if images hasn't been loaded. Fallback when back is pressed at a wrong time causing images to be already loaded before script.js loads. */
         setTimeout(function() {
             if (!loaded){
                 loading();
             }
         },5000)
 
-        //Update global height on resize
+        /** Update global height on resize. */
         $(window).resize(function() {
             height = $(this).height();
         });
 
+        /** Sets position of the header to prepare for slide in animation. */
         $('.chapter h6').css({
             right: '50vw',
             opacity: 0,
         });
 
-        //Parallax effects
+        /** Used to generate Parallax effects. The properties are calculated according to the user's height from the top of the document. */
         $(window).scroll(function() {
+            /** @access protected */
 			var wintop = $(window).scrollTop();
 			$('header').css('opacity', 1 - wintop / 1000);
             $('#p_bg1').css('opacity', wintop / 1500);
@@ -52,7 +66,7 @@ $(function() {
             });
 		});
 
-        //Navigation-open
+        /** Navigation open */
         $('.nav_button').click(function() {
             $(this).css("pointer-events", "none");
             $(this).addClass('nav_button_hidden')
@@ -60,7 +74,7 @@ $(function() {
             navToggle();
         });
 
-        //Navigation-close
+        /** Navigation close */
         $('.nav_button_close').click(function() {
             $(this).css("pointer-events", "none");
             $('.nav_button').css("pointer-events", "all");
@@ -68,7 +82,7 @@ $(function() {
             navToggle();
         });
 
-        //Light toggle
+        /** Toggles document light mode. */
         $('.night_mode i, #light-sure').click(function() {
             $('#light').toggleClass('hidden');
             $('#dark').toggleClass('hidden');
@@ -76,12 +90,18 @@ $(function() {
             lightToggle();
         });
 
+        
+
+        /** Turns off light mode warning. */
+        /** @global */
         var warning = false
         $('#light-sure, #light-nn').click(function(){
             $('.light-warning').addClass('hidden');
             warning = true
         });
 
+        /** Toggles image expansion. */
+        /** @global */
         var expand = false
         $('#para_part5_1').click(function(){
             var thisHeight = $(this).offset().top;
@@ -96,7 +116,7 @@ $(function() {
             lightToggle();
         });
 
-        //Page scroll
+        /** Scrolls the user down by the window height. */
         $('header aside').click(function() {
             scrollDown(height);
         });
@@ -108,14 +128,14 @@ $(function() {
             scrollDown(newHeight);
         });
 
-        //Scroll to top
+        /** Returns the user to the top of the document */
         $('.to-top').click(function(){
             $('body').animate({
                 scrollTop: 0
             },700)
         });
 
-        //Page change
+        /** Adds animation for hyperlinks */
         $('a').click(function(event) {
             event.preventDefault();
             var page = $(this).attr('href');
@@ -127,12 +147,15 @@ $(function() {
             else {
                 $('body').fadeOut(750, redirect);
             }
+            /** Changes the page location
+             * @access private
+            */
             function redirect() {
                 window.location = page
             }
         });
 
-        //Page animations
+        /** Scrolling triggers, activates classes and changes css according to the scroll offset from top. */
         $(window).scroll(function() {
             var position = $(this).scrollTop() + 50;
             //Full height offset
@@ -173,39 +196,28 @@ $(function() {
             }
         });
 
-        //Overlay toggles
+        /** Toggles specific page overlays based on the element which is clicked. */
         $('#p3_int_3').click(function() {
             overlayToggle('#partoverlay_alt');
         });
-
         $('#p3_int_4').click(function() {
             overlayToggle('#partoverlay_alt_2');
         });
-
         $('#p8alt_1').click(function() {
             overlayToggle('#part8overlay_1');
         });
-
         $('#p8alt_2').click(function() {
             overlayToggle('#part8overlay_2');
         });
-
         $('.next_part h1').click(function() {
             overlayToggle('.next_overlay');
         });
-
         $('.next_overlay').click(function() {
             overlayToggle('.next_overlay');
             $('.to-top').css('right','0px');
         });
 
-        //Functions
-        function overlayToggle(overlay) {
-            $(overlay).toggleClass('next_hidden');
-            $('body').toggleClass('no_overflow');
-            $('.to-top').css('right', pos_right);
-        }
-
+        /** Changes the saturation of the background image on element hover. */
         $('.next_overlay a').hover(
             function() {
                 $('.next_overlay').css('filter', 'saturate(100%)')
@@ -215,6 +227,7 @@ $(function() {
             }
         );
 
+        /** Changes the opacity of the text background on element hover. */
         $('.p_background').hover(
             function() {
                 $(this).css('background-color', 'rgba(0, 0, 0, 0.75)')
@@ -224,18 +237,32 @@ $(function() {
             }
         );
 
+        /** Toggles the specified page overlay.
+         * @param {string} overlay - The overlay which will be toggled.
+        */
+        function overlayToggle(overlay) {
+            $(overlay).toggleClass('next_hidden');
+            $('body').toggleClass('no_overflow');
+            $('.to-top').css('right', pos_right);
+        }
+
+        /** Toggles the specified page overlay.
+         * @param {int} height - The height to which the document will scroll down by.
+        */
         function scrollDown(height) {
             $('body').animate({
                 scrollTop: ('+=%i', height)
             },700);
         }
 
+        /** Toggles the global navigation on and off */
         function navToggle() {
             $('.nav_overlay, nav').toggleClass('menuvisible');
             $('#main, .nav_overlay').toggleClass('menuopen');
             $('.nav_button_close').toggleClass('menutransform-open');
         }
 
+        /** Removes the loading screen */
         function loading() {
             $('.loading').addClass('hidden');
             $('.loading').css('pointer-events','none');
@@ -243,6 +270,7 @@ $(function() {
             loaded = true
         }
 
+        /** Toggles global light mode on and off */
         function lightToggle() {
             if (light) {
                 $('main').addClass('main_invert');
