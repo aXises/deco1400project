@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="DECO1400project">
+        <meta name="author" content="Xinyi">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link type="text/plain" rel="author" href="humans.txt"/>
+        <title>story.io</title>
+         <!-- Main CSS -->
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="57x57" href="resources/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="resources/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="resources/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="resources/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="resources/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="resources/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="resources/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="resources/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="resources/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="resources/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="resources/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="resources/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="resources/icons/favicon-16x16.png">
+        <link rel="manifest" href="resources/icons/manifest.json">
+        <link href="css/reset.css" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:300,400" rel="stylesheet">
+        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        <aside class="nav_overlay">
+        </aside>
+        <aside class="nav_button" style="color:black; border-color:black;">
+            <p>MENU</p>
+        </aside>
+        <aside class="nav_button_close">
+        </aside>
+        <nav>
+            <ul>
+                <a href="index.html">
+                    <li>
+                        <p>Prologue<span class="numerals">I</span></p>  
+                    </li>
+                </a>
+                <a href="part2.html">
+                    <li>
+                        <p>Part 2<span class="numerals">II</span></p>
+                    </li>
+                </a>
+                <a href="part3.html">
+                    <li>
+                        <p>Part 3<span class="numerals">III</span></p>
+                    </li>
+                </a>
+                <a href="part4.html">
+                    <li>
+                        <p>Part 4<span class="numerals">IV</span></p>
+                    </li>
+                </a>
+                <a href="part5.html">
+                    <li>
+                        <p>Part 5<span class="numerals">V</span></p>
+                    </li>
+                </a>
+                <a href="part6.html">
+                    <li>
+                        <p>Part 6<span class="numerals">VI</span></p>
+                    </li>
+                </a>
+                <a href="part7.html">
+                    <li>
+                        <p>Part 7<span class="numerals">VII</span></p>
+                    </li>
+                </a>
+                <a href="part8.html">
+                    <li>
+                        <p>Part 8<span class="numerals">VIII</span></p>
+                    </li>
+                </a>
+                <a href="index.html">
+                    <li>
+                        <p>About/Contact</p>  
+                    </li>
+                </a>
+            </ul>
+            <aside class="night_mode verticalcenter">
+                <p id="light">Turn off the lights</p>
+                <i class="ion-ios-lightbulb-outline"></i>
+                <p id="dark" class="hidden">Turn on the lights</p>
+            </aside>
+        </nav>
+
+        <main id="about">
+            <section style="height:100vh;">
+                <article>
+                    <h4>About</h4>
+                    <hr>
+                    <p>
+                        Something has always felt slightly off in Meghan's life, ever since her father disappeared before her eyes when she was six. She has never quite fit in at school…or at home.
+                        When a dark stranger begins watching her from afar, and her prankster best friend becomes strangely protective of her, Meghan senses that everything she's known is about to change.
+                    </p>
+                </article>
+                <article>
+                    <h4>Contact</h4>
+                    <hr>
+                    <form action="contacts.php" method="post" target="_blank">
+                        <p>Name:</p>
+                        <input type="text" name="name">
+                        <p>Email:</p>
+                        <input type="text" name="email">
+                        <p>Message:</p>
+                        <textarea name="message" rows="10" cols="100"></textarea>
+                        <br>
+                        <input type="submit" value="Submit">
+                    </form>
+                </article>
+            </section>
+        </main>
+    </body>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        //jQuery fallback
+        if (typeof(jQuery) === 'undefined') {
+            document.write('<script src="script/jquery-3.1.1.min.js"><'+'/script>'); 
+        }
+    </script>
+    <script src="script/script.js"></script> 
+</html>
