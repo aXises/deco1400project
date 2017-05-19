@@ -121,6 +121,7 @@ $(function() {
             scrollDown(height);
         });
 
+        /** Scroll the user down by the total of the parent element offset and the window height. */
         $('#p3_int_1, #p3_int_2').click(function() {
             $('.nodisplay').css('display','block');
             var x = $(this).parent().offset().top;
