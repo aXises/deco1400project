@@ -473,10 +473,6 @@ main article, #p_bg1 section {
     line-height: 50px;
 }
 
-#p1main article {
-    padding-bottom: 150px;
-}
-
 #p_bg1 section {
     width: 60vw;
     margin-top: 5px;
@@ -560,6 +556,10 @@ main article, #p_bg1 section {
 
 #part6overlay {
     background-image: url("../resources/images/pexels-photo-268533.jpeg");
+}
+
+#part7overlay {
+    background-image: url("../resources/images/pexels-photo.jpg");
 }
 
 #p8_ic {
