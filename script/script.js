@@ -270,6 +270,14 @@ $(function() {
         overlayToggle($(this).attr('overlay'));
     });
 
+    /** Allows the user to toggle off an overlay by clicking the overlay its self. 
+     * @desc Toggles overlay
+     */
+    $('.next_overlay').click(function() {
+        overlayToggle(this)
+        $('.to-top').css('right','0px');
+    });
+
     /** Changes the saturation of the background image on element hover. */
     $('.next_overlay a').hover(
         function() {
@@ -334,7 +342,7 @@ $(function() {
      * @param {string} overlay - The overlay which will be toggled.
     */
     function overlayToggle(overlay) {
-        $(overlay).removeClass('next_hidden');
+        $(overlay).toggleClass('next_hidden');
         $('body').toggleClass('no_overflow');
         $('.to-top').css('right', pos_right);
     }
