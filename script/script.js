@@ -6,7 +6,7 @@ $(function() {
 
     /** Initialize global variables.  
      * Global to all jQuery but may not be for the whole JS document.
-    */
+     */
 
     /** jQuery @global 
      * @default
@@ -49,19 +49,26 @@ $(function() {
     */
     var expand = false
 
-    /** Wait for images before loading. */
+    /** Waits for all images to load before calling the {@link load} function which removes the loading screen of the document.
+     * @desc Wait for images before loading. 
+     */
     $(window).on("load", function() {
-        loading();
+        load();
     });
     
-    /** Load after 5 seconds if images hasn't been loaded. Fallback when 'back' is pressed at a wrong time causing images to be already loaded before script.js loads. */
+    /** If images has not been loaded for more then 5 seconds, Load the page anyways by calling {@link load} function.
+     * This is also used as fallback when 'back' is pressed at a wrong time causing images to be already loaded before script.js loads. 
+     * @desc Load after 5 seconds if images hasn't been loaded.
+    */
     setTimeout(function() {
         if (!loaded){
-            loading();
+            load();
         }
     },5000)
 
-    /** Update global height on resize. */
+    /** This event listener listens for any form of window resize before updating the global height variable to the new height of the window.
+     * @desc Update global height on resize. 
+     */
     $(window).resize(function() {
         /** @global */
         height = $(this).height();
@@ -73,7 +80,10 @@ $(function() {
         opacity: 0,
     });
 
-    /** Used to generate Parallax effects. The properties are calculated according to the user's height from the top of the document. */
+    /** This event listener listens for any form of page scrolling and updates CSS properties of elements accordingly.
+     * The properties are calculated according to the user's height from the top of the document. 
+     * @desc Generate Parallax effects and scroll effects.
+     */
     $(window).scroll(function() {
         /** @access private */
         var wintop = $(window).scrollTop();
@@ -91,7 +101,9 @@ $(function() {
         });
     });
 
-    /** Navigation open */
+    /** Opens the navigation menu by switching the current button with the navigation close button before calling {@link navToggle} which opens the menu.
+     * @desc Open the navigation menu 
+     */
     $('.nav_button').click(function() {
         $(this).css("pointer-events", "none");
         $(this).addClass('nav_button_hidden')
@@ -99,7 +111,9 @@ $(function() {
         navToggle();
     });
 
-    /** Navigation close */
+    /** Closes the navigation menu by switching the current button with the default menu button before calling {@link navToggle} which closes the menu.
+     * @desc Closes the navigation menu 
+     */
     $('.nav_button_close').click(function() {
         $(this).css("pointer-events", "none");
         $('.nav_button').css("pointer-events", "all");
@@ -107,7 +121,10 @@ $(function() {
         navToggle();
     });
 
-    /** Toggles document light mode. */
+    /** Inverts shades of the document and changes the icon to indicate whether if the light is on or off. 
+     * Calls {@link lightToggle} to invert colours. 
+     * @desc Toggles document light mode. 
+     */
     $('.night_mode i, #light-sure').click(function() {
         $('#light').toggleClass('hidden');
         $('#dark').toggleClass('hidden');
@@ -117,14 +134,18 @@ $(function() {
 
     
 
-    /** Turns off light mode warning. */
+    /** Temporary method to showcase the warning system which warns the user to turn off the lights.
+     * @desc Turns off light mode warning. 
+     */
     $('#light-sure, #light-nn').click(function(){
         $('.light-warning').addClass('hidden');
         /** @global */
         warning = true
     });
 
-    /** Toggles image expansion. */
+    /** Toggles the size of the image, from the full height to a set height and toggles the light accordingly with {@link lightToggle}.
+     * @desc Toggles image expansion.
+     */
     $('#para_part5_1').click(function(){
         var thisHeight = $(this).offset().top;
         scrollDown(thisHeight);
@@ -139,27 +160,43 @@ $(function() {
         lightToggle();
     });
 
-    /** Scrolls the user down by the window height. */
+    /** Scrolls the user down by the global window height variable which stores the current window height.
+     *  This ensures the document is moved by a full window page by passing the full height to {@link scrollDown}. 
+     * @desc Scrolls the user down by the window height.
+     */
     $('header aside').click(function() {
         scrollDown(height);
     });
 
-    /** Scroll the user down by the total of the parent element offset and the window height. */
+    /** Scroll the user down by the total of the parent element offset and the window height.
+     * The element offset and window height are converted to integers and added before passing the parameter to {@link scrollDown}.
+     * @desc Scrolls the user down by a calculated value.
+     */
     $('#p3_int_1, #p3_int_2').click(function() {
         $('.nodisplay').css('display','block');
+
+        /** @access private */
         var x = $(this).parent().offset().top;
+
+        /** @access private */
         var newHeight = parseInt(x) + parseInt(height);
+
         scrollDown(newHeight);
     });
 
-    /** Returns the user to the top of the document */
+    /** Returns the user to the top of the document by setting scroll-bar relative position to the top of the document to 0 
+     * @desc Scrolls the user to the top of the page.
+     */
     $('.to-top').click(function(){
         $('body').animate({
             scrollTop: 0
         },700)
     });
 
-    /** Adds animation for hyperlinks */
+    /** Animates page transition with a fadeout by preventing the default action of page change and instead fading the body out before calling the redirect function.
+     * If the user clicks on the link they are on, scroll the page down instead.
+     * @desc Adds animation for hyperlinks. 
+     */
     $('a').click(function(event) {
         event.preventDefault();
         var page = $(this).attr('href');
@@ -171,7 +208,7 @@ $(function() {
         else {
             $('body').fadeOut(750, redirect);
         }
-        /** Changes the page location
+        /** Redirects the page.
          * @access private
         */
         function redirect() {
@@ -179,9 +216,14 @@ $(function() {
         }
     });
 
-    /** Scrolling triggers, activates classes and changes css according to the scroll offset from top. */
+    /** This event listener listens for page scrolling and updates a local variable storing the current page location.
+     *  If the variable and other booleans meet a condition, it triggers, activates classes and changes CSS properties.
+     * @desc Adds effects on user scroll.
+     */
     $(window).scroll(function() {
+        /** @access private */
         var position = $(this).scrollTop() + 50;
+
         //Full height offset
         if (position > height && light){
             $('.nav_button, .numerals').css({
@@ -220,7 +262,10 @@ $(function() {
         }
     });
 
-    /** Toggles specific page overlays based on the element which is clicked. */
+    /** Toggles specific page overlays based on the element which is clicked.
+     * Passes the value of the overlay attribute to {@link overlayToggle}.
+     * @desc Turns on page overlays.
+     */
     $('.overlayButton').click(function() {
         overlayToggle($(this).attr('overlay'));
     });
@@ -245,6 +290,46 @@ $(function() {
         }
     );
 
+    /** This event listener waits for a form to be submitted and prevents the default response before checking the value of inputs to ensure they are not empty.
+     * If the inputs are empty a red border will display.
+     * Once all the inputs are non-empty the form will submit.
+     * @desc Validates the form before submission. 
+     */
+    $('form').submit(function(event) {
+
+        /** @access private */
+        var name = $('input#fName').val()
+
+        /** @access private */
+        var mail = $('input#fMail').val();
+
+        /** @access private */
+        var message = $('textarea#fMessage').val();
+
+        if (name === '') {
+            $('input#fName').css('border', '1px solid red');
+        } else {
+            $('input#fName').css('border', '');
+        }
+
+        if (mail === '') {
+            $('input#fMail').css('border', '1px solid red');
+        } else {
+            $('input#fMail').css('border', '');
+        }
+
+        if (message === '') {
+            $('textarea#fMessage').css('border', '1px solid red');
+        } else {
+            $('textarea#fMessage').css('border', '');
+        }
+
+        if (name !== '' && mail !== '' && message !== '') {
+            $(this).submit();
+        } 
+        event.preventDefault();
+    });
+
     /** Toggles the specified page overlay.
      * @param {string} overlay - The overlay which will be toggled.
     */
@@ -254,7 +339,7 @@ $(function() {
         $('.to-top').css('right', pos_right);
     }
 
-    /** Toggles the specified page overlay.
+    /** Scrolls down the page by a specified amount of height.
      * @param {int} height - The height to which the document will scroll down by.
     */
     function scrollDown(height) {
@@ -263,23 +348,24 @@ $(function() {
         },700);
     }
 
-    /** Toggles the global navigation on and off */
+    /** Toggles the global navigation on and off by toggling specific classes */
     function navToggle() {
         $('.nav_overlay, nav').toggleClass('menuvisible');
         $('#main, .nav_overlay').toggleClass('menuopen');
         $('.nav_button_close').toggleClass('menutransform-open');
     }
 
-    /** Removes the loading screen */
-    function loading() {
+    /** Removes the loading screen by adding classes and changing CSS properties */
+    function load() {
         $('.loading').addClass('hidden');
         $('.loading').css('pointer-events','none');
         $('body').css('overflow-y', 'auto');
+
         /** @global */
         loaded = true
     }
 
-    /** Toggles global light mode on and off */
+    /** Toggles global light mode on and off by adding or removing the 'main invert' class depending on the light boolean. */
     function lightToggle() {
         if (light) {
             $('main').addClass('main_invert');
